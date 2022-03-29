@@ -76,7 +76,7 @@ public class Movie
      * adds a user review to a movie
      * @param review new review to be added
      */
-    void AddReview(String review)
+    public void AddReview(String review)
     {
         userReviews.add(review);
     }
@@ -86,12 +86,12 @@ public class Movie
      * @param i index of review to be edited
      * @param review edited review
      */
-    void EditReview(int i, String review)
+    public void EditReview(int i, String review)
     {
         userReviews.set(i, review);
     }
 
-    void DeleteReview(int i)
+    public void DeleteReview(int i)
     {
         userReviews.remove(i);
     }
