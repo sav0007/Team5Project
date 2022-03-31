@@ -7,8 +7,11 @@ import java.awt.geom.*;
 import javax.swing.*;
 
 public class MainPage {
+
     static public void createFrame() {
         JFrame frame = new JFrame();
+
+        frame.add(drawTopBar());
 
         frame.setSize(640,640);
         frame.setLayout(null);
@@ -19,7 +22,16 @@ public class MainPage {
     static public JPanel drawTopBar() {
         JPanel topBar = new JPanel();
 
-        // code here
+        topBar.setBounds(0,0,640,75);
+        topBar.setBackground(Color.gray);
+
+        JButton homeB = new JButton("Good Views");
+        homeB.setBounds(0,0,100,75);
+        homeB.setBackground(Color.orange);
+
+
+
+        topBar.add(homeB);
 
         return topBar;
     }
