@@ -6,6 +6,6 @@ import java.awt.event.ActionListener;
 import java.awt.geom.*;
 import javax.swing.*;
 
-class MovieDescription {
+public class MainPage {
 
 }
