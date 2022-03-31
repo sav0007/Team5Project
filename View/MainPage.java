@@ -21,17 +21,22 @@ public class MainPage {
 
     static public JPanel drawTopBar() {
         JPanel topBar = new JPanel();
-
+        topBar.setLayout(null);
         topBar.setBounds(0,0,640,75);
         topBar.setBackground(Color.gray);
 
         JButton homeB = new JButton("Good Views");
+        //homeB.setLayout(null);
         homeB.setBounds(0,0,100,75);
         homeB.setBackground(Color.orange);
 
-
+        JButton profileB = new JButton("Profile");
+        //profileB.setLayout(null);
+        profileB.setBounds(540,0,100,75);
+        profileB.setBackground(Color.orange);
 
         topBar.add(homeB);
+        topBar.add(profileB);
 
         return topBar;
     }
