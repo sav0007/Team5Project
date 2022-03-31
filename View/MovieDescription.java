@@ -8,4 +8,12 @@ import javax.swing.*;
 
 class MovieDescription {
 
+    static public JPanel createMoviePanel() {
+        JPanel moviePanel = new JPanel(new BorderLayout());
+
+        // code here
+
+        return moviePanel;
+    }
+
 }
