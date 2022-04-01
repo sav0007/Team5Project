@@ -1,24 +1,32 @@
 package Model;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Movie
 {
-    private String title;
-    private String mpaa;
-    private Date publishDate;
-    private String runTime;
-    private ArrayList<String> genre;
-    private ArrayList<String> directors;
-    private ArrayList<String> actors;
-    private String plot;
-    private ArrayList<String> languages;
-    private String country;
-    private ArrayList<String> awards; // listed as just a string in document
-    private Image poster;
-    private String ratings;
+
+
+
+
+    public void setUserReviews(ArrayList<String> userReviews) {
+        this.userReviews = userReviews;
+    }
+
+    private String Title;
+    private String Year;
+    private String Rated;
+    private String Released;
+    private String RunTime;
+    private String Genre;
+    private String Director;
+    private String Actors;
+    private String Plot;
+    private String Language;
+    private String Country;
+    private String Awards; // listed as just a string in document
+    private String poster;
+    private ArrayList<String> ratings;
     private ArrayList<String> userReviews;
 
     /**
@@ -26,18 +34,20 @@ public class Movie
      */
     Movie()
     {
-        title = "unknown";
-        mpaa = "unknown";
-        //publishDate.setDat
-        genre.add("unknown genre");
-        directors.add("unknown directors");
-        actors.add("unknown actors");
-        plot = "default plot";
-        languages.add("unknown languages");
-        country = "unknown";
-        awards.add("unknown award"); // listed as just a string in document
+        Title = "N/A";
+        Rated = "N/A";
+        Year = "N/A";
+        Released = "N/A";
+        Genre = "N/A";
+        Director = "N/A";
+        Actors = "N/A";
+        Plot = "N/A";
+        Language = "N/A";
+        Country = "N/A";
+        Awards = "N/A"; // listed as just a string in document
         //poster;
-        ratings = "unknown rating";
+        ratings = new ArrayList<String>();
+        userReviews = new ArrayList<String>();
     }
 
     /**
@@ -54,22 +64,21 @@ public class Movie
      * @param Country country movie is in
      * @param Awards awards movie has recieved
      * @param Poster image for a movie
-     * @param Ratings movie ratings idk if this supposed to be user ratings so im commenting it out
      */
-    Movie(String Title, String Mpaa, Date Date1, String Runtime, ArrayList<String> Genre, ArrayList<String> Directors, ArrayList<String> Actors, String Plot, ArrayList<String> Languages, String Country, ArrayList<String> Awards, Image Poster, String Ratings)
+    Movie(String Title, String Mpaa, String Date1, String Runtime, String Genre, String Directors, String Actors, String Plot, String Languages, String Country, String Awards, String Poster)
     {
-        title = Title;
-        mpaa = Mpaa;
-        publishDate = Date1;
-        genre = Genre;
-        directors = Directors;
-        actors = Actors;
-        plot = Plot;
-        languages = Languages;
-        country = Country;
-        awards = Awards; // listed as just a string in document
+        this.Title = Title;
+        Rated = Mpaa;
+        Released = Date1;
+        this.Genre = Genre;
+        Director = Directors;
+        this.Actors = Actors;
+        this.Plot = Plot;
+        Language = Languages;
+        this.Country = Country;
+        this.Awards = Awards; // listed as just a string in document
         poster = Poster;
-        //ratings = Ratings;
+
     }
 
     /**
@@ -95,4 +104,5 @@ public class Movie
     {
         userReviews.remove(i);
     }
+
 }
