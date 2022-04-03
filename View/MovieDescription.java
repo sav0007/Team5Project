@@ -3,7 +3,6 @@ package com.company.View;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.*;
@@ -20,10 +19,32 @@ class MovieDescription {
 
     // draw panel
     static public JPanel movieCard() {
-        JPanel movie = new JPanel(new FlowLayout());
+        JPanel movie = new JPanel();
 
+        movie.setLayout(null);
         movie.setBackground(Color.darkGray);
 
+        JLabel title = new JLabel("Dune");
+        title.setFont(new Font("Arial",Font.BOLD,48));
+        title.setForeground(Color.black);
+        title.setBounds(10,0,1280,100);
+        movie.add(title);
+
+        movie.add(poster());
+
+        // important movie stuff
+
+        // these have no bounds so you can't see them
+        movie.add(userReview());
+        movie.add(Review());
+
+        movie.add(addCollect());
+
+        return movie;
+    }
+
+    // poster
+    static protected JLabel poster() {
         URL moviePoster = null;
         try {
             moviePoster = new URL("https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg");
@@ -31,31 +52,49 @@ class MovieDescription {
             e.printStackTrace();
         }
         JLabel poster = new JLabel(new ImageIcon(moviePoster));
-        movie.add(poster);
+        poster.setBounds(25,100,300,445);
 
-
-
-        movie.add(Review());
-
-        return movie;
+        return poster;
     }
 
-
     // add review
+    static protected JTextField userReview() {
+        JTextField reviewText = new JTextField(20);
+
+
+
+        return reviewText;
+    }
+
     static protected JButton Review() {
         JButton addReview = new JButton("Add Review");
 
+        addReview.setBackground(Color.orange);
 
+        addReview.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // save review to file
+            }
+        });
 
         return addReview;
     }
 
     // add to collection
     static protected JButton addCollect() {
-        JButton addtoCollect = new JButton("Add to Collection");
+        JButton collect = new JButton("Add to Collection");
 
+        collect.setBounds(100, 550, 150, 20);
 
-        return addtoCollect;
+        collect.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // add movie to some collection
+            }
+        });
+
+        return collect;
     }
 
 }

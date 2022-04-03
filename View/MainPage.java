@@ -3,7 +3,6 @@ package com.company.View;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.*;
 import javax.swing.*;
 
 /**
@@ -16,8 +15,6 @@ public class MainPage {
         JFrame frame = new JFrame("GoodViews");
 
         frame.add(drawTopBar());
-
-
 
         JPanel cardPanel = new JPanel(new CardLayout());
         cardPanel.setBounds(0,50,1280,670);
