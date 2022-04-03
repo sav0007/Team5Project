@@ -21,7 +21,6 @@ public class MainPage {
 
         JPanel cardPanel = new JPanel(new CardLayout());
         cardPanel.setBounds(0,50,1280,670);
-        //cardPanel.setVisible(true);
 
         cardPanel.add("movie", MovieDescription.movieCard());
 
@@ -76,15 +75,15 @@ public class MainPage {
         return topBar;
     }
 
-    static public JPanel HomePanel() {
-        JPanel homePanel = new JPanel();
+    static public JPanel homeCard() {
+        JPanel home = new JPanel();
 
-        homePanel.setBounds(0,50,1280,670);
-        homePanel.setBackground(Color.lightGray);
+        home.setBounds(0,50,1280,670);
+        home.setBackground(Color.lightGray);
 
         // home stuff
 
-        return homePanel;
+        return home;
     }
 
 }
