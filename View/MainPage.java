@@ -6,14 +6,19 @@ import java.awt.event.ActionListener;
 import java.awt.geom.*;
 import javax.swing.*;
 
+/**
+ * MainPage is a skeleton rn, a lot of it will be changed after i finish MovieDescription
+ */
 public class MainPage {
+    static protected JPanel panel= MovieDescription.MoviePanel();
 
     static public void createFrame() {
         JFrame frame = new JFrame();
 
         frame.add(drawTopBar());
+        frame.add(panel);
 
-        frame.setSize(640,640);
+        frame.setSize(1280,720);
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,30 +26,52 @@ public class MainPage {
 
     static public JPanel drawTopBar() {
         JPanel topBar = new JPanel();
-        topBar.setLayout(null);
-        topBar.setBounds(0,0,640,75);
-        topBar.setBackground(Color.gray);
+        topBar.setLayout(new GridLayout());
+        topBar.setBounds(0,0,1280,50);
+        topBar.setBackground(Color.lightGray);
 
         JButton homeB = new JButton("Good Views");
-        //homeB.setLayout(null);
-        homeB.setBounds(0,0,100,75);
         homeB.setBackground(Color.orange);
+        homeB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panel=HomePanel();
+            }
+        });
+
+        JButton collectB = new JButton("Collections");
+        collectB.setBackground(Color.gray);
+        collectB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //panel is collections page
+            }
+        });
 
         JButton profileB = new JButton("Profile");
-        //profileB.setLayout(null);
-        profileB.setBounds(540,0,100,75);
         profileB.setBackground(Color.orange);
+        profileB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // panel is profile page
+            }
+        });
+
 
         topBar.add(homeB);
+        topBar.add(collectB);
         topBar.add(profileB);
 
         return topBar;
     }
 
-    static public JPanel drawHomePanel() {
+    static public JPanel HomePanel() {
         JPanel homePanel = new JPanel();
 
-        // code here
+        homePanel.setBounds(0,50,1280,670);
+        homePanel.setBackground(Color.lightGray);
+
+        // home stuff
 
         return homePanel;
     }
