@@ -10,14 +10,25 @@ import javax.swing.*;
  * MainPage is a skeleton rn, a lot of it will be changed after i finish MovieDescription
  */
 public class MainPage {
-    static protected JPanel panel= MovieDescription.MoviePanel();
+
 
     static public void createFrame() {
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("GoodViews");
 
         frame.add(drawTopBar());
-        frame.add(panel);
 
+
+
+        JPanel cardPanel = new JPanel(new CardLayout());
+        cardPanel.setBounds(0,50,1280,670);
+        //cardPanel.setVisible(true);
+
+        cardPanel.add("movie", MovieDescription.movieCard());
+
+        CardLayout page = (CardLayout)(cardPanel.getLayout());
+        page.show(cardPanel,"movie");
+
+        frame.add(cardPanel);
         frame.setSize(1280,720);
         frame.setLayout(null);
         frame.setVisible(true);
@@ -35,7 +46,7 @@ public class MainPage {
         homeB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                panel=HomePanel();
+                //panel=HomePanel();
             }
         });
 
