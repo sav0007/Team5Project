@@ -1,17 +1,9 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Movie
 {
-
-
-
-
-    public void setUserReviews(ArrayList<String> userReviews) {
-        this.userReviews = userReviews;
-    }
 
     private String Title;
     private String Year;
@@ -25,7 +17,7 @@ public class Movie
     private String Language;
     private String Country;
     private String Awards; // listed as just a string in document
-    private String poster;
+    private String Poster;
     private ArrayList<String> ratings;
     private ArrayList<String> userReviews;
 
@@ -46,8 +38,8 @@ public class Movie
         Country = "N/A";
         Awards = "N/A"; // listed as just a string in document
         //poster;
-        ratings = new ArrayList<String>();
-        userReviews = new ArrayList<String>();
+        ratings = new ArrayList<>();
+        userReviews = new ArrayList<>();
     }
 
     /**
@@ -64,8 +56,9 @@ public class Movie
      * @param Country country movie is in
      * @param Awards awards movie has recieved
      * @param Poster image for a movie
+     * @param Ratings movie ratings idk if this supposed to be user ratings so im commenting it out
      */
-    Movie(String Title, String Mpaa, String Date1, String Runtime, String Genre, String Directors, String Actors, String Plot, String Languages, String Country, String Awards, String Poster)
+    Movie(String Title, String Mpaa, String Date1, String Runtime, String Genre, String Directors, String Actors, String Plot, String Languages, String Country, String Awards, String Poster, String Ratings)
     {
         this.Title = Title;
         Rated = Mpaa;
@@ -77,8 +70,8 @@ public class Movie
         Language = Languages;
         this.Country = Country;
         this.Awards = Awards; // listed as just a string in document
-        poster = Poster;
-
+        this.Poster = Poster;
+        //ratings = Ratings;
     }
 
     /**
@@ -105,4 +98,127 @@ public class Movie
         userReviews.remove(i);
     }
 
+    public String getTitle() {
+        return Title;
+    }
+
+    public String getYear() {
+        return Year;
+    }
+
+    public String getRated() {
+        return Rated;
+    }
+
+    public String getReleased() {
+        return Released;
+    }
+
+    public String getRunTime() {
+        return RunTime;
+    }
+
+    public String getGenre() {
+        return Genre;
+    }
+
+    public String getDirector() {
+        return Director;
+    }
+
+    public String getActors() {
+        return Actors;
+    }
+
+    public String getPlot() {
+        return Plot;
+    }
+
+    public String getLanguage() {
+        return Language;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
+
+    public String getAwards() {
+        return Awards;
+    }
+
+    public String getPoster() {
+        return Poster;
+    }
+
+    public ArrayList<String> getRatings() {
+        return ratings;
+    }
+
+    public ArrayList<String> getUserReviews() {
+        return userReviews;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public void setYear(String year) {
+        Year = year;
+    }
+
+    public void setRated(String rated) {
+        Rated = rated;
+    }
+
+    public void setReleased(String released) {
+        Released = released;
+    }
+
+    public void setRunTime(String runTime) {
+        RunTime = runTime;
+    }
+
+    public void setGenre(String genre) {
+        Genre = genre;
+    }
+
+    public void setDirector(String director) {
+        Director = director;
+    }
+
+    public void setActors(String actors) {
+        Actors = actors;
+    }
+
+    public void setPlot(String plot) {
+        Plot = plot;
+    }
+
+    public void setLanguage(String language) {
+        Language = language;
+    }
+
+    public void setCountry(String country) {
+        Country = country;
+    }
+
+    public void setAwards(String awards) {
+        Awards = awards;
+    }
+
+    public void setPoster(String poster) {
+        this.Poster = poster;
+    }
+
+    public void setRatings(ArrayList<String> ratings) {
+        this.ratings = ratings;
+    }
+
+    public void setUserReviews(ArrayList<String> userReviews) {
+        this.userReviews = userReviews;
+    }
+
+
 }
+
+

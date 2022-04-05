@@ -5,17 +5,14 @@ package Model;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
 
-import java.io.File;
+
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.Date;
 
 public class MovieDatabase
 {
@@ -38,24 +35,22 @@ public class MovieDatabase
         JsonParser jsonParser = new JsonParser();
         try (FileReader reader = new FileReader("SampleMovieFile (2).json"))
         {
-            //Read JSON file
             Object obj = jsonParser.parse(reader);
-
             movielist = (JsonArray) obj;
-           // System.out.println(employeeList);
+            for (int i = 0; i < movielist.size(); i++)
+            {
+                String tempstring = movielist.get(i).toString(); // ignore this is just for looking at the string in the debugger
+                Movie tempmovie;
+                tempmovie = gson.fromJson(movielist.get(i), Movie.class);
+                movies.add(tempmovie);
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        for (int i = 0; i < movielist.size(); i++)
-        {
-            String tempstring = movielist.get(i).toString();
-            Movie tempmovie;
-            tempmovie = gson.fromJson(tempstring, Movie.class);
-            movies.add(tempmovie);
-        }
+
 
     }
 
@@ -65,6 +60,29 @@ public class MovieDatabase
 
 
 /*
+
+
+MovieAdapter tempmovieAdapter;
+                tempmovieAdapter = gson.fromJson(tempstring, MovieAdapter.class);
+                tempmovie = new Movie();
+                tempmovie.setTitle(tempmovieAdapter.getTitle());
+                tempmovie.setYear(tempmovieAdapter.getYear());
+                tempmovie.setRated(tempmovieAdapter.getRated());
+                if (tempmovieAdapter.getReleased() != "N/A")
+                {
+                    String temp = tempmovieAdapter.getReleased();
+                    Date temp1 = temp;
+                    tempmovie.setReleased(tempmovieAdapter.getReleased());
+                }
+
+
+
+
+
+
+
+
+
 Gson gson = new Gson();
         File file = new File(filename);
         Scanner scan = null;
