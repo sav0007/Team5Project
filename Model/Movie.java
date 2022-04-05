@@ -18,7 +18,8 @@ public class Movie
     private String Country;
     private String Awards; // listed as just a string in document
     private String Poster;
-    private ArrayList<String> ratings;
+    private ArrayList<Ratings> Ratings;
+    private ArrayList<String> userRatings;
     private ArrayList<String> userReviews;
 
     /**
@@ -38,7 +39,8 @@ public class Movie
         Country = "N/A";
         Awards = "N/A"; // listed as just a string in document
         //poster;
-        ratings = new ArrayList<>();
+        //Ratings = new Ratings();
+        userRatings = new ArrayList<>();
         userReviews = new ArrayList<>();
     }
 
@@ -150,8 +152,8 @@ public class Movie
         return Poster;
     }
 
-    public ArrayList<String> getRatings() {
-        return ratings;
+    public ArrayList<String> getUserRatings() {
+        return userRatings;
     }
 
     public ArrayList<String> getUserReviews() {
@@ -210,12 +212,20 @@ public class Movie
         this.Poster = poster;
     }
 
-    public void setRatings(ArrayList<String> ratings) {
-        this.ratings = ratings;
+    public void setUserRatings(ArrayList<String> userRatings) {
+        this.userRatings = userRatings;
     }
 
     public void setUserReviews(ArrayList<String> userReviews) {
         this.userReviews = userReviews;
+    }
+
+    public ArrayList<Model.Ratings> getRatings() {
+        return Ratings;
+    }
+
+    public void setRatings(ArrayList<Model.Ratings> ratings) {
+        Ratings = ratings;
     }
 
 
