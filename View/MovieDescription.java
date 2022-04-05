@@ -38,6 +38,7 @@ class MovieDescription {
         movie.add(userReview());
         movie.add(Review());
 
+        movie.add(chooseCollect());
         movie.add(addCollect());
 
         return movie;
@@ -82,10 +83,27 @@ class MovieDescription {
     }
 
     // add to collection
+    static protected JComboBox chooseCollect() {
+        String Collections[]  = {"Collection 1", "Collection 2", "Collection 3"};
+
+        JComboBox collects = new JComboBox(Collections);
+
+        collects.setBounds(100, 550, 150, 20);
+
+        collects.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // choose collection to add to movie
+            }
+        });
+
+        return collects;
+    }
+
     static protected JButton addCollect() {
         JButton collect = new JButton("Add to Collection");
 
-        collect.setBounds(100, 550, 150, 20);
+        collect.setBounds(100, 580, 150, 20);
 
         collect.addActionListener(new ActionListener() {
             @Override
