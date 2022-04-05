@@ -17,24 +17,54 @@ import javax.swing.*;
  */
 class MovieDescription {
 
-    // draw panel
+    /**
+     *
+     * @return
+     */
     static public JPanel movieCard() {
         JPanel movie = new JPanel();
 
         movie.setLayout(null);
-        movie.setBackground(Color.darkGray);
+        movie.setBackground(Color.lightGray);
+        movie.setForeground(Color.black);
 
         JLabel title = new JLabel("Dune");
         title.setFont(new Font("Arial",Font.BOLD,48));
-        title.setForeground(Color.black);
-        title.setBounds(10,0,1280,100);
+        title.setBounds(10,0,1280,75);
         movie.add(title);
+
+        String genre = "Genre: something, something";
+        movie.add(makeLabel(genre,10,50,500,50));
 
         movie.add(poster());
 
-        // important movie stuff
+        String release = "Released: 22 Oct 2021";
+        movie.add(makeLabel(release, 350, 100, 200,25));
 
-        // these have no bounds so you can't see them
+        String mpaa = "| PG-13 |";
+        movie.add(makeLabel(mpaa,525,100,100,25));
+
+        String reviewText = "<html>Reviews:<br> A review<br> Another review<br> A third review</html>";
+        movie.add(makeLabel(reviewText,350,125,1000,100));
+
+        String actors = "Actors: Actor, Actor, Actor";
+        movie.add(makeLabel(actors,350,225,1000,25));
+
+        String directors = "Directors: director, director";
+        movie.add(makeLabel(directors,350,250,1000,25));
+
+        String plot = "<html>Plot: <br> some things happen <br> movie stuff filler plot <br> large text area <br> more things happen </html>";
+        movie.add(makeLabel(plot,350,275,1000,125));
+
+        String languages = "Languages: English, Spanish";
+        movie.add(makeLabel(languages,350,400,1000,25));
+
+        String country = "Country: America";
+        movie.add(makeLabel(country,350,425,200,25));
+
+        String awards = "<html>Awards: <br> an award for a thing <br> an award for a different thing <br> much award</html>";
+        movie.add(makeLabel(awards,350,450,1000,100));
+
         movie.add(userReview());
         movie.add(Review());
 
@@ -44,11 +74,34 @@ class MovieDescription {
         return movie;
     }
 
-    // poster
+    /**
+     *
+     * @param text
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @return
+     */
+    static private JLabel makeLabel(String text, int x, int y, int w, int h) {
+        JLabel label = new JLabel();
+
+        label.setText(text);
+        label.setFont(new Font("Arial",Font.PLAIN,16));
+        label.setBounds(x,y,w,h);
+
+        return label;
+    }
+
+    /**
+     *
+     * @return
+     */
     static protected JLabel poster() {
+        String posterImage = "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg";
         URL moviePoster = null;
         try {
-            moviePoster = new URL("https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg");
+            moviePoster = new URL(posterImage);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -59,18 +112,28 @@ class MovieDescription {
     }
 
     // add review
+
+    /**
+     *
+     * @return
+     */
     static protected JTextField userReview() {
         JTextField reviewText = new JTextField(20);
 
-
+        reviewText.setBounds(350,550,300,25);
 
         return reviewText;
     }
 
+    /**
+     *
+     * @return
+     */
     static protected JButton Review() {
         JButton addReview = new JButton("Add Review");
 
         addReview.setBackground(Color.orange);
+        addReview.setBounds(650,550,100,25);
 
         addReview.addActionListener(new ActionListener() {
             @Override
@@ -83,6 +146,11 @@ class MovieDescription {
     }
 
     // add to collection
+
+    /**
+     *
+     * @return
+     */
     static protected JComboBox chooseCollect() {
         String Collections[]  = {"Collection 1", "Collection 2", "Collection 3"};
 
@@ -100,6 +168,10 @@ class MovieDescription {
         return collects;
     }
 
+    /**
+     *
+     * @return
+     */
     static protected JButton addCollect() {
         JButton collect = new JButton("Add to Collection");
 
