@@ -9,7 +9,7 @@ public class Movie
     private String Year;
     private String Rated;
     private String Released;
-    private String RunTime;
+    private String Runtime;
     private String Genre;
     private String Director;
     private String Actors;
@@ -114,8 +114,8 @@ public class Movie
         return Released;
     }
 
-    public String getRunTime() {
-        return RunTime;
+    public String getRuntime() {
+        return Runtime;
     }
 
     public String getGenre() {
@@ -174,8 +174,8 @@ public class Movie
         Released = released;
     }
 
-    public void setRunTime(String runTime) {
-        RunTime = runTime;
+    public void setRuntime(String runtime) {
+        Runtime = runtime;
     }
 
     public void setGenre(String genre) {
