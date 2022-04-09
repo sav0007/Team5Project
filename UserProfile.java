@@ -8,7 +8,7 @@ public class UserProfile {
      */
     private String userName; private String password;
     ArrayList<MovieDatabase>Collections = new ArrayList<>();
-
+    ArrayList<MovieDatabase>Preferences = new ArrayList<>();
 
     public UserProfile(){
         userName = "unknown";
@@ -31,16 +31,17 @@ public class UserProfile {
     public void changePassword(String passwordInput){
         password = passwordInput;
     }
+
     public void createCollection(MovieDatabase Collection){
         Collections.add(Collection);
     }
     public void deleteCollection(MovieDatabase Collection){
         Collections.remove(Collection);
     }
-    public void addPreference(){
-
+    public void addPreference(MovieDatabase Preference){
+        Preferences.add(Preference);
     }
-    public void deletePreference(){
-
+    public void deletePreference(MovieDatabase Preference){
+        Preferences.remove(Preference);
     }
 }
