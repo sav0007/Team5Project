@@ -34,7 +34,7 @@ public class UserProfile {
     public void createCollection(MovieDatabase Collection){
         Collections.add(Collection);
     }
-    public void deleteCollection(MovieDatabase Collection[]){
+    public void deleteCollection(MovieDatabase Collection){
         Collections.remove(Collection);
     }
     public void addPreference(){
