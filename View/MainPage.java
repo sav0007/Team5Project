@@ -6,7 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
- * MainPage is a skeleton rn, a lot of it will be changed after i finish MovieDescription
+ * Written by: Leela Hyatt
+ * Date: 4/5/22
+ * MainPage shows user the pages they can interact with, it calls other view classes to centralize view control
+ * History:
+ *  Date        Name            Modification
+ *  4/12/22     Leela Hyatt     MainPage shares LoginPage JFrame
+ *
  */
 public class MainPage {
 

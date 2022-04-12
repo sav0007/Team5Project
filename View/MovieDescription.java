@@ -13,6 +13,7 @@ import javax.swing.*;
  * MovieDescription presents movie information to the user and allows the user to leave a review and add to a collection
  * History:
  *  Date        Name            Modification
+ *  4/12/22     Leela Hyatt     movie details taken from Movie
  *
  */
 class MovieDescription {
