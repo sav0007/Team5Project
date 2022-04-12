@@ -28,41 +28,43 @@ class MovieDescription {
         movie.setBackground(Color.lightGray);
         movie.setForeground(Color.black);
 
-        JLabel title = new JLabel("Dune");
+        String Title=Model.Movie.getTitle();
+        JLabel title = new JLabel(Title);
         title.setFont(new Font("Arial",Font.BOLD,48));
         title.setBounds(10,0,1280,75);
         movie.add(title);
 
-        String genre = "Genre: something, something";
+
+        String genre = Model.Movie.getGenre(); // need genre
         movie.add(makeLabel(genre,10,50,500,50));
 
         movie.add(poster());
 
-        String release = "Released: 22 Oct 2021";
+        String release = Model.Movie.getReleased();
         movie.add(makeLabel(release, 350, 100, 200,25));
 
         String mpaa = "| PG-13 |";
         movie.add(makeLabel(mpaa,525,100,100,25));
 
-        String reviewText = "<html>Reviews:<br> A review<br> Another review<br> A third review</html>";
+        String reviewText = Model.Movie.getReviews(); // need reviews
         movie.add(makeLabel(reviewText,350,125,1000,100));
 
-        String actors = "Actors: Actor, Actor, Actor";
+        String actors = "Actors: "+Model.Movie.getActors();
         movie.add(makeLabel(actors,350,225,1000,25));
 
-        String directors = "Directors: director, director";
+        String directors = "Director: "+Model.Movie.getDirector();
         movie.add(makeLabel(directors,350,250,1000,25));
 
-        String plot = "<html>Plot: <br> some things happen <br> movie stuff filler plot <br> large text area <br> more things happen </html>";
+        String plot = "Plot: "+Model.Movie.getPlot();
         movie.add(makeLabel(plot,350,275,1000,125));
 
-        String languages = "Languages: English, Spanish";
+        String languages = "Language: "+Model.Movie.getLanguage();
         movie.add(makeLabel(languages,350,400,1000,25));
 
-        String country = "Country: America";
+        String country = "Country: " +Model.Movie.getCountry();
         movie.add(makeLabel(country,350,425,200,25));
 
-        String awards = "<html>Awards: <br> an award for a thing <br> an award for a different thing <br> much award</html>";
+        String awards = "Awards: "+Model.Movie.getAwards();
         movie.add(makeLabel(awards,350,450,1000,100));
 
         movie.add(userReview());
@@ -98,7 +100,7 @@ class MovieDescription {
      * @return
      */
     static protected JLabel poster() {
-        String posterImage = "https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg";
+        String posterImage = Model.Movie.getPoster();
         URL moviePoster = null;
         try {
             moviePoster = new URL(posterImage);
