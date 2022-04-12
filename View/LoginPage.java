@@ -77,6 +77,7 @@ public class LoginPage implements ActionListener {
         panel.add(success);
         success.setText("");
 
+        // on success, hide login panel and call MainPage.createPage(frame);
 
         frame.setVisible(true);
 
