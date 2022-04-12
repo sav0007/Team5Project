@@ -11,8 +11,7 @@ import javax.swing.*;
 public class MainPage {
 
 
-    static public void createFrame() {
-        JFrame frame = new JFrame("GoodViews");
+    static public void createPage(JFrame frame) {
 
         frame.add(drawTopBar());
 
@@ -20,6 +19,7 @@ public class MainPage {
         cardPanel.setBounds(0,50,1280,670);
 
         cardPanel.add("movie", MovieDescription.movieCard());
+        // add all pages here
 
         CardLayout page = (CardLayout)(cardPanel.getLayout());
         page.show(cardPanel,"movie");
