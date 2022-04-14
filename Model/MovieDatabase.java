@@ -143,7 +143,17 @@ public class MovieDatabase
         return temp;
     }
 
-
+    public MovieDatabase filterMPAA(String MPAA)
+    {
+        MovieDatabase temp = new MovieDatabase();
+        for (int i = 0; i < movies.size(); i++)
+        {
+            if (MPAA.compareTo(movies.get(i).getRated()) == 0){
+                temp.addMovie(movies.get(i));
+            }
+        }
+        return temp;
+    }
 
 
 
