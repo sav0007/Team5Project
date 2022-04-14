@@ -1,6 +1,7 @@
 package com.company.Model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Movie implements Comparable<Movie>
 {
@@ -38,8 +39,7 @@ public class Movie implements Comparable<Movie>
         Language = "N/A";
         Country = "N/A";
         Awards = "N/A"; // listed as just a string in document
-        //poster;
-        //Ratings = new Ratings();
+        Ratings = new ArrayList<com.company.Model.Ratings>();
         userRatings = new ArrayList<>();
         userReviews = new ArrayList<>();
     }
@@ -100,7 +100,7 @@ public class Movie implements Comparable<Movie>
         userReviews.remove(i);
     }
 
-    public String getTitle() {
+    public  String getTitle() {
         return Title;
     }
 
@@ -112,7 +112,7 @@ public class Movie implements Comparable<Movie>
         return Rated;
     }
 
-    public String getReleased() {
+    public  String getReleased() {
         return Released;
     }
 
@@ -120,15 +120,15 @@ public class Movie implements Comparable<Movie>
         return Runtime;
     }
 
-    public String getGenre() {
+    public  String getGenre() {
         return Genre;
     }
 
-    public String getDirector() {
+    public  String getDirector() {
         return Director;
     }
 
-    public String getActors() {
+    public  String getActors() {
         return Actors;
     }
 
@@ -136,15 +136,15 @@ public class Movie implements Comparable<Movie>
         return Plot;
     }
 
-    public String getLanguage() {
+    public  String getLanguage() {
         return Language;
     }
 
-    public String getCountry() {
+    public  String getCountry() {
         return Country;
     }
 
-    public String getAwards() {
+    public  String getAwards() {
         return Awards;
     }
 
@@ -242,6 +242,7 @@ public class Movie implements Comparable<Movie>
         }
         return 0;
     }
+
 }
 
 

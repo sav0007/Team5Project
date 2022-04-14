@@ -13,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 public class MovieDatabase
@@ -55,9 +56,65 @@ public class MovieDatabase
 
     }
 
-    public void sortTitleAlphabetic()
+    public void sortAlphaAZ()
     {
         Collections.sort(movies);
+    }
+
+    public void sortAlphaZA()
+    {
+        Comparator<Movie> sortTitleZA = new Comparator<Movie>() {
+            public int compare(Movie o1, Movie o2) {
+                String T1 = o1.getTitle();
+                String T2 = o2.getTitle();
+                int watch = T1.compareTo(T2);
+                if (watch > 0){
+                    return -1;
+                }
+                if (watch < 0){
+                    return 1;
+                }
+                return 0;
+            }
+        };
+        Collections.sort(movies, sortTitleZA);
+    }
+
+    public void sortDateOld()
+    {
+        Comparator<Movie> sortYear = new Comparator<Movie>() {
+            public int compare(Movie o1, Movie o2) {
+                String Y1 = o1.getYear();
+                String Y2 = o2.getYear();
+                int watch = Y1.compareTo(Y2);
+                if (watch > 0){
+                    return -1;
+                }
+                if (watch < 0){
+                    return 1;
+                }
+                return 0;
+            }
+        };
+        Collections.sort(movies, sortYear);
+    }
+    public void sortDateNew()
+    {
+        Comparator<Movie> sortYear = new Comparator<Movie>() {
+            public int compare(Movie o1, Movie o2) {
+                String Y1 = o1.getYear();
+                String Y2 = o2.getYear();
+                int watch = Y1.compareTo(Y2);
+                if (watch > 0){
+                    return -1;
+                }
+                if (watch < 0){
+                    return 1;
+                }
+                return 0;
+            }
+        };
+        Collections.sort(movies, sortYear);
     }
 
 }
