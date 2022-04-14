@@ -117,6 +117,37 @@ public class MovieDatabase
         Collections.sort(movies, sortYear);
     }
 
+    public MovieDatabase filterGenre(String genres)
+    {
+        String genre[] = genres.split(", ");
+        String dbgenre[];
+        int matches = 0;
+        MovieDatabase temp = new MovieDatabase();
+        for (int i = 0; i < movies.size(); i++){
+            matches = 0;
+            dbgenre = movies.get(i).getGenre().split(", ");
+            for(int j = 0; j < genre.length; j++)
+            {
+                for (int k = 0; k < dbgenre.length; k++) {
+                    if (genre[j].compareTo(dbgenre[k]) == 0){
+                        matches++;
+                        //
+                    }
+                }
+            }
+            if(matches == genre.length) {
+                temp.addMovie(movies.get(i));
+            }
+        }
+
+        return temp;
+    }
+
+
+
+
+
+
 }
 
 
