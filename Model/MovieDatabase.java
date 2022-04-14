@@ -1,4 +1,4 @@
-package Model;
+package com.company.Model;
 
 
 
@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 public class MovieDatabase
@@ -54,7 +55,10 @@ public class MovieDatabase
 
     }
 
-
+    public void sortTitleAlphabetic()
+    {
+        Collections.sort(movies);
+    }
 
 }
 

@@ -1,8 +1,8 @@
-package Model;
+package com.company.Model;
 
 import java.util.ArrayList;
 
-public class Movie
+public class Movie implements Comparable<Movie>
 {
 
     private String Title;
@@ -220,15 +220,28 @@ public class Movie
         this.userReviews = userReviews;
     }
 
-    public ArrayList<Model.Ratings> getRatings() {
+    public ArrayList<com.company.Model.Ratings> getRatings() {
         return Ratings;
     }
 
-    public void setRatings(ArrayList<Model.Ratings> ratings) {
+    public void setRatings(ArrayList<com.company.Model.Ratings> ratings) {
         Ratings = ratings;
     }
 
-
+    public int compareTo(Movie o)
+    {
+        String Title1 = Title.toUpperCase();
+        String Title2 = o.getTitle().toUpperCase();
+        int watch;
+        watch = Title1.compareTo(Title2);
+        if (watch > 0) {
+            return 1;
+        }
+        if (watch < 0){
+            return -1;
+        }
+        return 0;
+    }
 }
 
 
