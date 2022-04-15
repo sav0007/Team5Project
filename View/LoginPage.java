@@ -15,14 +15,16 @@ public class LoginPage implements ActionListener {
     private static JButton loginButton;
     private static JButton createAccountButton;
     private static JLabel success;
+    static JFrame frame;
+    static JPanel panel;
 
     public static void login() {
 
         //Creates Login Window
-        JFrame frame = new JFrame();
+        frame = new JFrame();
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         panel.setBackground(Color.gray);
         frame.add(panel);
         panel.setLayout(null);
@@ -78,6 +80,8 @@ public class LoginPage implements ActionListener {
         frame.setVisible(true);
 
         // on success, hide login panel and call MainPage.createPage(frame);
+
+
     }
 
     @Override
@@ -87,15 +91,23 @@ public class LoginPage implements ActionListener {
 
         if(userName.equals("Ace") && password.equals("octopus")) {
             success.setText("Login Successful");
+            panel.setVisible(false);
+            MainPage.createPage(frame, null);
         }
         else if(userName.equals("Malachi") && password.equals("gym")) {
             success.setText("Login Successful");
+            panel.setVisible(false);
+            MainPage.createPage(frame, null);
         }
         else if(userName.equals("Leela") && password.equals("engineer")) {
             success.setText("Login Successful");
+            panel.setVisible(false);
+            MainPage.createPage(frame, null);
         }
         else if(userName.equals("Will") && password.equals("sure")) {
             success.setText("Login Successful");
+            panel.setVisible(false);
+            MainPage.createPage(frame, null);
         }
 
         else {
