@@ -2,10 +2,8 @@ package com.company.View;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LoginPage implements ActionListener {
 
@@ -18,7 +16,7 @@ public class LoginPage implements ActionListener {
     private static JButton createAccountButton;
     private static JLabel success;
 
-    public static void main(String[] args) {
+    public static void login() {
 
         //Creates Login Window
         JFrame frame = new JFrame();
@@ -77,10 +75,9 @@ public class LoginPage implements ActionListener {
         panel.add(success);
         success.setText("");
 
-        // on success, hide login panel and call MainPage.createPage(frame);
-
         frame.setVisible(true);
 
+        // on success, hide login panel and call MainPage.createPage(frame);
     }
 
     @Override
