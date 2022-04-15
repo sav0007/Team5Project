@@ -1,6 +1,6 @@
 package com.company.View;
 
-import Model.Movie;
+import com.company.Model.Movie;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
