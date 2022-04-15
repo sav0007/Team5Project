@@ -1,5 +1,8 @@
 package com.company.View;
 
+import com.company.Model.Movie;
+import com.company.Model.MovieDatabase;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,14 +20,15 @@ import javax.swing.*;
 public class MainPage {
 
 
-    static public void createPage(JFrame frame) {
+     public void createPage(JFrame frame, Movie swag) {
 
         frame.add(drawTopBar());
 
         JPanel cardPanel = new JPanel(new CardLayout());
         cardPanel.setBounds(0,50,1280,670);
 
-        cardPanel.add("movie", MovieDescription.movieCard());
+        MovieDescription m1 = new MovieDescription();
+        cardPanel.add("movie", m1.movieCard(swag));
         // add all pages here
 
         CardLayout page = (CardLayout)(cardPanel.getLayout());

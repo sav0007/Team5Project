@@ -18,6 +18,8 @@ import java.util.Date;
 
 public class MovieDatabase
 {
+
+
     private ArrayList<Movie> movies;
 
     public MovieDatabase()
@@ -28,6 +30,10 @@ public class MovieDatabase
     public void addMovie(Movie movie)
     {
         movies.add(movie);
+    }
+
+    public ArrayList<Movie> getMovies() {
+        return movies;
     }
 
     public void buildDatabaseJson(String filename)

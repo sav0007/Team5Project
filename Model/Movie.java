@@ -26,7 +26,7 @@ public class Movie implements Comparable<Movie>
     /**
      * default constructor not 100% sure its needed though
      */
-    Movie()
+    public Movie()
     {
         Title = "N/A";
         Rated = "N/A";
@@ -220,8 +220,13 @@ public class Movie implements Comparable<Movie>
         this.userReviews = userReviews;
     }
 
-    public ArrayList<com.company.Model.Ratings> getRatings() {
-        return Ratings;
+    public String getRatings() {
+        String temp = new String();
+        for(int i =0; i < Ratings.size(); i++)
+        {
+            temp = temp + Ratings.get(i).getSource() + "   " + Ratings.get(i).getValue() + "    ";
+        }
+        return temp;
     }
 
     public void setRatings(ArrayList<com.company.Model.Ratings> ratings) {
