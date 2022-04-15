@@ -1,5 +1,7 @@
 package com.company.View;
 
+import com.company.Model.Movie;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,56 +18,56 @@ import javax.swing.*;
  *  4/12/22     Leela Hyatt     movie details taken from Movie
  *
  */
-class MovieDescription {
+public class MovieDescription  {
 
     /**
      *
      * @return
      */
-    static public JPanel movieCard() {
+    public JPanel movieCard(Movie movie1) {
         JPanel movie = new JPanel();
 
         movie.setLayout(null);
         movie.setBackground(Color.lightGray);
         movie.setForeground(Color.black);
 
-        String Title=Model.Movie.getTitle();
+        String Title=movie1.getTitle();
         JLabel title = new JLabel(Title);
         title.setFont(new Font("Arial",Font.BOLD,48));
         title.setBounds(10,0,1280,75);
         movie.add(title);
 
 
-        String genre = Model.Movie.getGenre(); // need genre
+        String genre = movie1.getGenre(); // need genre
         movie.add(makeLabel(genre,10,50,500,50));
 
-        movie.add(poster());
+        movie.add(poster(movie1));
 
-        String release = Model.Movie.getReleased();
+        String release = movie1.getReleased();
         movie.add(makeLabel(release, 350, 100, 200,25));
 
         String mpaa = "| PG-13 |";
         movie.add(makeLabel(mpaa,525,100,100,25));
 
-        String reviewText = Model.Movie.getReviews(); // need reviews
+        String reviewText = movie1.getRatings(); // need reviews
         movie.add(makeLabel(reviewText,350,125,1000,100));
 
-        String actors = "Actors: "+Model.Movie.getActors();
+        String actors = "Actors: "+movie1.getActors();
         movie.add(makeLabel(actors,350,225,1000,25));
 
-        String directors = "Director: "+Model.Movie.getDirector();
+        String directors = "Director: "+movie1.getDirector();
         movie.add(makeLabel(directors,350,250,1000,25));
 
-        String plot = "Plot: "+Model.Movie.getPlot();
+        String plot = "Plot: "+movie1.getPlot();
         movie.add(makeLabel(plot,350,275,1000,125));
 
-        String languages = "Language: "+Model.Movie.getLanguage();
+        String languages = "Language: "+movie1.getLanguage();
         movie.add(makeLabel(languages,350,400,1000,25));
 
-        String country = "Country: " +Model.Movie.getCountry();
+        String country = "Country: " +movie1.getCountry();
         movie.add(makeLabel(country,350,425,200,25));
 
-        String awards = "Awards: "+Model.Movie.getAwards();
+        String awards = "Awards: "+movie1.getAwards();
         movie.add(makeLabel(awards,350,450,1000,100));
 
         movie.add(userReview());
@@ -75,6 +77,10 @@ class MovieDescription {
         movie.add(addCollect());
 
         return movie;
+    }
+
+    private static String getReviews() {
+        return "bruh";
     }
 
     /**
@@ -100,8 +106,12 @@ class MovieDescription {
      *
      * @return
      */
-    static protected JLabel poster() {
-        String posterImage = Model.Movie.getPoster();
+     protected JLabel poster(Movie movie1) {
+        String posterImage = movie1.getPoster();
+        if (posterImage.compareTo("N/A") == 0)
+        {
+            posterImage = "https://cdn.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.webp";
+        }
         URL moviePoster = null;
         try {
             moviePoster = new URL(posterImage);
