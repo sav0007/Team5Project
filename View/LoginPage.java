@@ -18,7 +18,10 @@ public class LoginPage implements ActionListener {
     static JFrame frame;
     static JPanel panel;
 
-    public static void login() {
+    public static void LoginPage() {
+        // constructor for main
+    }
+    public void login() {
 
         //Creates Login Window
         frame = new JFrame();
@@ -78,10 +81,6 @@ public class LoginPage implements ActionListener {
         success.setText("");
 
         frame.setVisible(true);
-
-        // on success, hide login panel and call MainPage.createPage(frame);
-
-
     }
 
     @Override
@@ -116,5 +115,3 @@ public class LoginPage implements ActionListener {
 
     }
 }
-
-
