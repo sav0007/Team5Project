@@ -2,12 +2,12 @@ package com.company.View;
 
 import com.company.Model.Movie;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.swing.*;
 
 /**
  * Written by: Leela Hyatt
@@ -31,6 +31,10 @@ public class MovieDescription  {
         movie.setBackground(Color.lightGray);
         movie.setForeground(Color.black);
 
+        if (movie1==null) {
+            return movie;
+        }
+
         String Title=movie1.getTitle();
         JLabel title = new JLabel(Title);
         title.setFont(new Font("Arial",Font.BOLD,48));
@@ -38,7 +42,7 @@ public class MovieDescription  {
         movie.add(title);
 
 
-        String genre = movie1.getGenre(); // need genre
+        String genre = movie1.getGenre();
         movie.add(makeLabel(genre,10,50,500,50));
 
         movie.add(poster(movie1));
@@ -49,7 +53,7 @@ public class MovieDescription  {
         String mpaa = "| PG-13 |";
         movie.add(makeLabel(mpaa,525,100,100,25));
 
-        String reviewText = movie1.getRatings(); // need reviews
+        String reviewText = movie1.getRatings();
         movie.add(makeLabel(reviewText,350,125,1000,100));
 
         String actors = "Actors: "+movie1.getActors();
@@ -79,7 +83,7 @@ public class MovieDescription  {
         return movie;
     }
 
-    private static String getReviews() {
+    private String getReviews() {
         return "bruh";
     }
 
@@ -92,7 +96,7 @@ public class MovieDescription  {
      * @param h
      * @return
      */
-    static private JLabel makeLabel(String text, int x, int y, int w, int h) {
+    private JLabel makeLabel(String text, int x, int y, int w, int h) {
         JLabel label = new JLabel();
 
         label.setText(text);
@@ -130,7 +134,7 @@ public class MovieDescription  {
      *
      * @return
      */
-    static protected JTextField userReview() {
+    protected JTextField userReview() {
         JTextField reviewText = new JTextField(20);
 
         reviewText.setBounds(350,550,300,25);
@@ -142,7 +146,7 @@ public class MovieDescription  {
      *
      * @return
      */
-    static protected JButton Review() {
+    protected JButton Review() {
         JButton addReview = new JButton("Add Review");
 
         addReview.setBackground(Color.orange);
@@ -164,7 +168,7 @@ public class MovieDescription  {
      *
      * @return
      */
-    static protected JComboBox chooseCollect() {
+    protected JComboBox chooseCollect() {
         String Collections[]  = {"Collection 1", "Collection 2", "Collection 3"};
 
         JComboBox collects = new JComboBox(Collections);
@@ -185,7 +189,7 @@ public class MovieDescription  {
      *
      * @return
      */
-    static protected JButton addCollect() {
+    protected JButton addCollect() {
         JButton collect = new JButton("Add to Collection");
 
         collect.setBounds(100, 580, 150, 20);
