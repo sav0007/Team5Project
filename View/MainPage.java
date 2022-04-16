@@ -32,10 +32,12 @@ public class MainPage {
         cardPanel.add("movie", m1.movieCard(swag));
 
         cardPanel.add("home",homeCard());
+
+        cardPanel.add("list",MovieListing.listingCard(null));
         // add all pages here
 
         page = (CardLayout)(cardPanel.getLayout());
-        page.show(cardPanel,"home");
+        page.show(cardPanel,"list");
 
         frame.add(cardPanel);
     }
@@ -60,7 +62,7 @@ public class MainPage {
         collectB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //panel is collections page
+                // show collections page
             }
         });
 
@@ -69,10 +71,9 @@ public class MainPage {
         profileB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // panel is profile page
+                // show profile page
             }
         });
-
 
         topBar.add(homeB);
         topBar.add(collectB);
