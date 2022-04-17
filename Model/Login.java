@@ -1,4 +1,8 @@
 package com.company.Model;
+import com.google.gson.Gson;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 public class Login extends UserProfile {
 
@@ -7,6 +11,9 @@ public class Login extends UserProfile {
      */
     ArrayList<UserProfile>Users = new ArrayList<>();
 
+
+
+    private UserProfile User;
     /**
      * Basic constructor for the UserProfile class
      * @param user : UserProfile userName field
@@ -15,6 +22,11 @@ public class Login extends UserProfile {
     public Login(String user, String pass) {
         super(user, pass);
     }
+
+    public Login(){
+
+    }
+
 
     /**
      * checkUserPass checks if the
@@ -49,6 +61,28 @@ public class Login extends UserProfile {
         String user = "Guest";
         String pass = "1234";
         UserProfile tempUser = new UserProfile(user, pass);
+    }
+
+    public UserProfile loadProfile(String prof)
+    {
+        Gson gson = new Gson();
+        UserProfile bruh = new UserProfile();
+        try {
+            FileReader reader = new FileReader(prof + ".json");
+            bruh = gson.fromJson(reader, UserProfile.class);
+            User = bruh;
+            return bruh;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return bruh;
+    }
+
+    public UserProfile getUser() {
+        return User;
+    }
+    public void setUser(UserProfile user) {
+        User = user;
     }
 }
 

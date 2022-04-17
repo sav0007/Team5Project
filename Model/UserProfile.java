@@ -1,5 +1,11 @@
 package com.company.Model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class UserProfile {
@@ -11,8 +17,8 @@ public class UserProfile {
     /**
      * Creating the Collections and Preferences arrays of MovieDatabase type
      */
-    ArrayList<MovieDatabase>Collections = new ArrayList<>();
-    ArrayList<MovieDatabase>Preferences = new ArrayList<>();
+    ArrayList<MovieDatabase>Collections;
+    ArrayList<String>Preferences;
 
     /**
      Basic constructor for the UserProfile class
@@ -21,6 +27,11 @@ public class UserProfile {
     {
         userName = user;
         password = pass;
+    }
+
+    public UserProfile(){
+        Collections = new ArrayList<>();
+        Preferences = new ArrayList<>();
     }
 
     /**
@@ -63,7 +74,7 @@ public class UserProfile {
      * This method adds the preference of MovieDatabase type to the array
      * @param Preference : MovieDatabase fields
      */
-    public void addPreference(MovieDatabase Preference){
+    public void addPreference(String Preference){
         Preferences.add(Preference);
     }
 
@@ -73,5 +84,47 @@ public class UserProfile {
      */
     public void deletePreference(MovieDatabase Preference){
         Preferences.remove(Preference);
+    }
+
+
+
+
+
+    public MovieDatabase getCollection(int i) {
+        return Collections.get(i);
+    }
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    public void storeProfile() {
+        //GsonBuilder gson = new GsonBuilder();
+        //gson.serializeNulls();
+        //gson.setPrettyPrinting().disableHtmlEscaping();
+        Gson gson1 = new GsonBuilder()
+                .setPrettyPrinting()
+                .disableHtmlEscaping()
+                .create();
+        String temp;
+        temp = userName + password;
+        File tempFile = new File(temp + ".json");
+        UserProfile tempprof = this;
+        try {
+            FileWriter a = new FileWriter(tempFile);
+            tempFile.createNewFile();
+            gson1.toJson(tempprof, a);
+            a.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (IllegalStateException e){
+            e.printStackTrace();
+        }
     }
 }

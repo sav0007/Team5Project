@@ -1,5 +1,7 @@
 package com.company.View;
 
+import com.company.Model.Login;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -91,22 +93,24 @@ public class LoginPage implements ActionListener {
         if(userName.equals("Ace") && password.equals("octopus")) {
             success.setText("Login Successful");
             panel.setVisible(false);
-            MainPage.createPage(frame, null);
+            //MainPage.createPage(frame, null);
         }
         else if(userName.equals("Malachi") && password.equals("gym")) {
             success.setText("Login Successful");
             panel.setVisible(false);
-            MainPage.createPage(frame, null);
+            //MainPage.createPage(frame, null);
         }
         else if(userName.equals("Leela") && password.equals("engineer")) {
             success.setText("Login Successful");
             panel.setVisible(false);
-            MainPage.createPage(frame, null);
+            //MainPage.createPage(frame, null);
         }
         else if(userName.equals("Will") && password.equals("sure")) {
             success.setText("Login Successful");
             panel.setVisible(false);
-            MainPage.createPage(frame, null);
+            Login log = new Login(userName, password);
+            log.loadProfile("Willsure");
+            MainPage.createPage(frame, null, log.getUser());
         }
 
         else {

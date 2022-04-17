@@ -32,6 +32,10 @@ public class MovieDatabase
         movies.add(movie);
     }
 
+    public Movie getMovie(int i){
+        return movies.get(i);
+    }
+
     public ArrayList<Movie> getMovies() {
         return movies;
     }
