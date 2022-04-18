@@ -56,7 +56,7 @@ public class CollectionsPage extends JPanel implements ActionListener{
         ArrayList<String> Collections  = new ArrayList<>();
 
 
-        for(int i = 0; i < prof.getCollections().size(); i++){
+        for(int i = 0; i < prof.getUserCollections().size(); i++){
          Collections.add("Collection " + (i + 1));
         }
         String Collectionslist[] = new String[Collections.size()];
@@ -85,8 +85,6 @@ public class CollectionsPage extends JPanel implements ActionListener{
     }
 
     public JScrollPane collectionView(UserProfile profile, int a){
-        CollectionsPAge = new CollectionsPage();
-        CollectionsPAge.add(chooseCollect());
         Container temp1 = new JPanel();
         MovieDatabase temp;
         temp = profile.getCollection(a);

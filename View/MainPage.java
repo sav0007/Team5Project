@@ -1,6 +1,8 @@
 package com.company.View;
 
+import com.company.Model.Login;
 import com.company.Model.Movie;
+import com.company.Model.UserProfile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,11 +14,11 @@ import java.awt.event.ActionListener;
  * Date: 4/5/22
  * MainPage shows user the pages they can interact with, it calls other view classes to centralize view control
  */
-public class MainPage {
+public class MainPage extends Login {
     static JPanel cardPanel;
     static CardLayout page;
 
-     public static void createPage(JFrame frame, Movie swag) {
+     public static void createPage(JFrame frame, Movie movdesc, UserProfile profile) {
 
          frame.setSize(1280,720);
          frame.setLayout(null);
@@ -29,11 +31,14 @@ public class MainPage {
         cardPanel.setBounds(0,50,1280,670);
 
         MovieDescription m1 = new MovieDescription();
-        cardPanel.add("movie", m1.movieCard(swag));
+        cardPanel.add("movie", m1.movieCard(movdesc));
 
         cardPanel.add("home",homeCard());
 
         cardPanel.add("list",MovieListing.listingCard(null));
+
+        CollectionsPage a  = new CollectionsPage();
+        cardPanel.add("Collections", a.CollectionsCard(profile));
         // add all pages here
 
         page = (CardLayout)(cardPanel.getLayout());
@@ -62,7 +67,7 @@ public class MainPage {
         collectB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // show collections page
+                page.show(cardPanel,"Collections");
             }
         });
 
