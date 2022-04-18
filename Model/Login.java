@@ -1,15 +1,17 @@
 package com.company.Model;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 public class Login extends UserProfile {
 
     /**
      * This array stores the Users that will be created for the UserProfile type
      */
-    ArrayList<UserProfile>Users = new ArrayList<>();
+    ArrayList<UserList>Users = new ArrayList<>();
 
 
 
@@ -47,8 +49,8 @@ public class Login extends UserProfile {
      * @param aUser : UserProfile userName field
      * @param aPass : UserProfile password field
      */
-    public void createUser(String aUser, String aPass) {
-        UserProfile newUser = new UserProfile(aUser, aPass);
+    public void createUser(String aUser, String aPass) { // needs more still
+        UserList newUser = new UserList(aUser, aPass);
         Users.add(newUser);
     }
 
@@ -84,5 +86,65 @@ public class Login extends UserProfile {
     public void setUser(UserProfile user) {
         User = user;
     }
+
+    public void storeUserList(){
+        for (int i =0; i < Users.size(); i++)
+        {
+            Gson gson1 = new GsonBuilder()
+                    .setPrettyPrinting()
+                    .disableHtmlEscaping()
+                    .create();
+            String temp;
+            temp = "UserList";
+            File tempFile = new File(temp + ".json");
+            ArrayList<UserList> tempUsers = Users;
+            try {
+                FileWriter a = new FileWriter(tempFile);
+                tempFile.createNewFile();
+                gson1.toJson(tempUsers, a);
+                a.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            catch (IllegalStateException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public ArrayList<UserList> loadUserList(){
+        Gson gson = new Gson();
+        JsonArray tempuserList = new JsonArray();
+        JsonParser jsonParser = new JsonParser();
+        ArrayList<UserList> bruh = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader("UserList.json");
+            Object obj = jsonParser.parse(reader);
+            tempuserList = (JsonArray) obj;
+            UserList tempUL = new UserList();
+            for (int i = 0; i < tempuserList.size(); i++) {
+                tempUL = gson.fromJson(tempuserList.get(i), UserList.class);
+                bruh.add(tempUL);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Users = bruh;
+        return bruh;
+    }
+
+    public boolean checkInfo (String Username, String Pass){
+        for (int i = 0; i < Users.size(); i++){
+            if(Username.compareTo(Users.get(i).getUsername()) == 0 && Pass.compareTo(Users.get(i).getPassword()) == 0){
+                String tempS = Username + Pass;
+                User = loadProfile(tempS);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
 

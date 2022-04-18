@@ -20,6 +20,10 @@ public class MovieDatabase
 {
 
 
+    public void setMovies(MovieDatabase movies) {
+        this.movies = movies.getMovies();
+    }
+
     private ArrayList<Movie> movies;
 
     public MovieDatabase()

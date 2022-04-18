@@ -20,7 +20,7 @@ public class UserProfile {
     /**
      * Creating the Collections and Preferences arrays of MovieDatabase type
      */
-    ArrayList<MovieDatabase>Collections;
+    ArrayList<Collections> UserCollections;
     ArrayList<String>Preferences;
 
     /**
@@ -33,7 +33,7 @@ public class UserProfile {
     }
 
     public UserProfile(){
-        Collections = new ArrayList<>();
+        UserCollections = new ArrayList<>();
         Preferences = new ArrayList<>();
     }
 
@@ -59,8 +59,8 @@ public class UserProfile {
      * @param Collection : MovieDatabase type that gets added to
      *                     the collections array
      */
-    public void createCollection(MovieDatabase Collection){
-        Collections.add(Collection);
+    public void createCollection(Collections Collection){
+        UserCollections.add(Collection);
     }
 
     /**
@@ -70,7 +70,7 @@ public class UserProfile {
      *                     from the collections array
      */
     public void deleteCollection(MovieDatabase Collection){
-        Collections.remove(Collection);
+        UserCollections.remove(Collection);
     }
 
     /**
@@ -90,13 +90,13 @@ public class UserProfile {
     }
 
 
-    public ArrayList<MovieDatabase> getCollections() {
-        return Collections;
+    public ArrayList<Collections> getUserCollections() {
+        return UserCollections;
     }
 
 
     public MovieDatabase getCollection(int i) {
-        return Collections.get(i);
+        return UserCollections.get(i);
     }
 
 

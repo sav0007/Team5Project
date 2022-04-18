@@ -89,6 +89,21 @@ public class LoginPage implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String userName = usernameText.getText();
         String password = passwordText.getText();
+        Login log = new Login();
+        log.loadUserList();
+        if (log.checkInfo(userName, password) == false){
+            // print error message and reload loginpage
+        }
+        else {
+            panel.setVisible(false);
+            MainPage.createPage(frame, null, log.getUser());
+        }
+
+    }
+}
+
+
+/*
 
         if(userName.equals("Ace") && password.equals("octopus")) {
             success.setText("Login Successful");
@@ -108,7 +123,7 @@ public class LoginPage implements ActionListener {
         else if(userName.equals("Will") && password.equals("sure")) {
             success.setText("Login Successful");
             panel.setVisible(false);
-            Login log = new Login(userName, password);
+            //Login log = new Login(userName, password);
             log.loadProfile("Willsure");
             MainPage.createPage(frame, null, log.getUser());
         }
@@ -117,5 +132,25 @@ public class LoginPage implements ActionListener {
             success.setText("");
         }
 
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ */

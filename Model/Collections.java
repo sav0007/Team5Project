@@ -20,4 +20,8 @@ public class Collections extends MovieDatabase{
         Description = description;
     }
 
+    public void setDatabase(MovieDatabase mb){
+        setMovies(mb);
+    }
+
 }
