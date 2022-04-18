@@ -8,76 +8,74 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import javax.swing.*;
 
 
-public class CollectionsPage extends UserProfile implements ActionListener{
+public class CollectionsPage extends JPanel implements ActionListener{
+
+
+    private UserProfile prof;
+    private JScrollPane Collection;
+    private JComboBox CollectionsChoices;
+    private JButton DeleteCollection;
+    private JButton deleteCollectionButton;
+    private JPanel CollectionsPAge;
+    private LayoutManager layoutManager;
+
+
+
+    CollectionsPage(){
+        CollectionsPAge = new JPanel();
+        Collection = new JScrollPane();
+        Collection.createVerticalScrollBar();
+        CollectionsPAge.setSize(450,300);
+        CollectionsPAge.setVisible(true);
+    }
+
+
+
+
 
     /**
      * @return
      */
     public JPanel CollectionsCard(UserProfile profile) {
-        JPanel Collections = new JPanel();
-        Dimension dimension = new Dimension(2000, 2000);
-        Collections.setPreferredSize(dimension);
-        Collections.setMinimumSize(new Dimension(300, 300));
-        MovieDatabase temp;
-        Collections.add(chooseCollect());
-        temp = profile.getCollection(0);
-        JScrollPane comp = new JScrollPane();
-        if (temp.getMovies() != null) {
-            for (int i = 0; i < temp.getMovies().size(); i++) { // add panel for each movie
-                //JPanel result = new JPanel(new BorderLayout());
+        prof = profile;
+        CollectionsPAge.add(chooseCollect());
+        Collection = collectionView(profile, 0);
 
-                // get poster - left
-                String posterImage = temp.getMovie(i).getPoster();
-                if (posterImage.compareTo("N/A") == 0) {
-                    posterImage = "https://cdn.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.webp";
-                }
-                URL moviePoster = null;
-                try {
-                    moviePoster = new URL(posterImage);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-                ImageIcon imag = new ImageIcon(moviePoster);
-                Image image = imag.getImage();
-                Image newImage = image.getScaledInstance(100, 150, Image.SCALE_DEFAULT);
-                imag = new ImageIcon(newImage);
-                JLabel poster = new JLabel(imag);
-                comp.add(poster);
 
-                // get movie info - center
-                JLabel CliffNotes = new JLabel();
-                CliffNotes.setText("<html>" + temp.getMovie(i).getTitle() + "<br>" +
-                        temp.getMovie(i).getYear() + "  |  " + temp.getMovie(i).getRated() + "  |  " + temp.getMovie(i).getGenre() + "<br>" +
-                        temp.getMovie(i).getPlot() + "</html>");
-                comp.add(CliffNotes);
-            }
-        }
-        comp.setVisible(true);
-        Collections.add(comp);
-        Collections.setVisible(true);
-        return Collections;
+        CollectionsPAge.add(Collection, BorderLayout.CENTER);
+        CollectionsPAge.setBackground(Color.DARK_GRAY);
+        CollectionsPAge.setVisible(true);
+        return CollectionsPAge;
     }
 
     protected JComboBox chooseCollect() {
-        String Collections[]  = {"Collection 1", "Collection 2", "Collection 3"};
+        ArrayList<String> Collections  = new ArrayList<>();
 
-        JComboBox collects = new JComboBox(Collections);
 
-        collects.setBounds(100, 550, 150, 20);
+        for(int i = 0; i < prof.getCollections().size(); i++){
+         Collections.add("Collection " + (i + 1));
+        }
+        String Collectionslist[] = new String[Collections.size()];
 
-        collects.addActionListener(new ActionListener() {
+        Collections.toArray(Collectionslist);
+
+        CollectionsChoices = new JComboBox(Collectionslist);
+
+        CollectionsChoices.setBounds(100, 550, 150, 20);
+
+        CollectionsChoices.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                if (collects.getSelectedIndex() == 0){
+                collectionView(prof, CollectionsChoices.getSelectedIndex());
 
-                }
             }
         });
 
-        return collects;
+        return CollectionsChoices;
     }
 
 
@@ -86,5 +84,31 @@ public class CollectionsPage extends UserProfile implements ActionListener{
 
     }
 
-
+    public JScrollPane collectionView(UserProfile profile, int a){
+        CollectionsPAge = new CollectionsPage();
+        CollectionsPAge.add(chooseCollect());
+        Container temp1 = new JPanel();
+        MovieDatabase temp;
+        temp = profile.getCollection(a);
+        for (int i = 0; i <temp.getMovies().size(); i++){
+            String posterImage = temp.getMovie(i).getPoster();
+            if (posterImage.compareTo("N/A") == 0) {
+                posterImage = "https://cdn.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.webp";
+            }
+            URL moviePoster = null;
+            try {
+                moviePoster = new URL(posterImage);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            ImageIcon imag = new ImageIcon(moviePoster);
+            Image image = imag.getImage();
+            Image newImage = image.getScaledInstance(100, 150, Image.SCALE_DEFAULT);
+            imag = new ImageIcon(newImage);
+            JLabel poster = new JLabel(imag);
+            temp1.add(poster);
+        }
+        CollectionsPAge.add(temp1);
+        return Collection;
+    }
 }

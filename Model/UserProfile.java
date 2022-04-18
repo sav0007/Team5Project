@@ -14,6 +14,9 @@ public class UserProfile {
      *  Setting the attributes of the Class to protected
      */
     protected String userName; protected String password;
+
+
+
     /**
      * Creating the Collections and Preferences arrays of MovieDatabase type
      */
@@ -87,7 +90,9 @@ public class UserProfile {
     }
 
 
-
+    public ArrayList<MovieDatabase> getCollections() {
+        return Collections;
+    }
 
 
     public MovieDatabase getCollection(int i) {
@@ -102,6 +107,12 @@ public class UserProfile {
     public String getPassword() {
         return password;
     }
+
+    /** storeProfile Function
+     *  preliminary method for saving UserProfile data
+     *  Uses the users username and password as a file name to make storing and retrieveing easier
+     *
+     */
     public void storeProfile() {
         //GsonBuilder gson = new GsonBuilder();
         //gson.serializeNulls();

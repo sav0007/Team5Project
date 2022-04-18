@@ -127,6 +127,12 @@ public class MovieDatabase
         Collections.sort(movies, sortYear);
     }
 
+
+    /**
+     * takes in a string of genres or genre and filters the results into a sub moviedatabase containing only movies of a given genre
+     * @param genres string of genres
+     * @return submoviedatabase of movies that match the string of genres
+     */
     public MovieDatabase filterGenre(String genres)
     {
         String genre[] = genres.split(", ");
@@ -153,6 +159,12 @@ public class MovieDatabase
         return temp;
     }
 
+
+    /**
+     * Filters movies by MPAA rating and returns a subdatabase of movies matching MPAA
+     * @param MPAA MPAA rating to fitler by
+     * @return subDatabase
+     */
     public MovieDatabase filterMPAA(String MPAA)
     {
         MovieDatabase temp = new MovieDatabase();
