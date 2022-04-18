@@ -1,0 +1,822 @@
+{
+  "userName": "Test",
+  "password": "2",
+  "UserCollections": [
+    {
+      "Collectionname": "test collect name",
+      "Description": "test desc name",
+      "movies": [
+        {
+          "Title": "The Rocky Horror Picture Show",
+          "Year": "1975",
+          "Rated": "R",
+          "Released": "31 Aug 1975",
+          "Runtime": "100 min",
+          "Genre": "Comedy, Horror, Musical",
+          "Director": "Jim Sharman",
+          "Actors": "Tim Curry, Susan Sarandon, Barry Bostwick",
+          "Plot": "A newly-engaged couple have a breakdown in an isolated area and must seek shelter at the bizarre residence of Dr. Frank-n-Furter.",
+          "Language": "English",
+          "Country": "United Kingdom, United States",
+          "Awards": "4 wins & 5 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BOGIzYjM3YzMtMjk5ZS00NDY2LTllMjEtNjYwZjhmMDNhMDBkXkEyXkFqcGdeQXVyODUzMjQxMTA@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.4/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "78%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "65/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "The Color of Money",
+          "Year": "1986",
+          "Rated": "R",
+          "Released": "17 Oct 1986",
+          "Runtime": "119 min",
+          "Genre": "Drama, Sport",
+          "Director": "Martin Scorsese",
+          "Actors": "Paul Newman, Tom Cruise, Mary Elizabeth Mastrantonio",
+          "Plot": "Fast Eddie Felson teaches a cocky but immensely talented protégé the ropes of pool hustling, which in turn inspires him to make an unlikely comeback.",
+          "Language": "English, Spanish",
+          "Country": "United States",
+          "Awards": "Won 1 Oscar. 3 wins & 10 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BNGY4NGEzY2QtZmIwYS00NzkwLWI0MmItZmVjYjU0YzM3ZjBmXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.0/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "89%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "77/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Black Swan",
+          "Year": "2010",
+          "Rated": "R",
+          "Released": "17 Dec 2010",
+          "Runtime": "108 min",
+          "Genre": "Drama, Thriller",
+          "Director": "Darren Aronofsky",
+          "Actors": "Natalie Portman, Mila Kunis, Vincent Cassel",
+          "Plot": "A committed dancer struggles to maintain her sanity after winning the lead role in a production of Tchaikovsky's \"Swan Lake\".",
+          "Language": "English, French, Italian",
+          "Country": "United States",
+          "Awards": "Won 1 Oscar. 97 wins & 279 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BNzY2NzI4OTE5MF5BMl5BanBnXkFtZTcwMjMyNDY4Mw@@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "8.0/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "85%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "79/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Black Hawk Down",
+          "Year": "2001",
+          "Rated": "R",
+          "Released": "18 Jan 2002",
+          "Runtime": "144 min",
+          "Genre": "Action, Drama, History",
+          "Director": "Ridley Scott",
+          "Actors": "Josh Hartnett, Ewan McGregor, Tom Sizemore",
+          "Plot": "The story of 160 elite U.S. soldiers who dropped into Mogadishu in October 1993 to capture two top lieutenants of a renegade warlord, but found themselves in a desperate battle with a large force of heavily-armed Somalis.",
+          "Language": "English, Somali, Arabic",
+          "Country": "United States, United Kingdom",
+          "Awards": "Won 2 Oscars. 11 wins & 37 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BYWMwMzQxZjQtODM1YS00YmFiLTk1YjQtNzNiYWY1MDE4NTdiXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.7/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "76%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "74/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "BlacKkKlansman",
+          "Year": "2018",
+          "Rated": "R",
+          "Released": "10 Aug 2018",
+          "Runtime": "135 min",
+          "Genre": "Biography, Comedy, Crime",
+          "Director": "Spike Lee",
+          "Actors": "John David Washington, Adam Driver, Laura Harrier",
+          "Plot": "Ron Stallworth, an African American police officer from Colorado Springs, CO, successfully manages to infiltrate the local Ku Klux Klan branch with the help of a Jewish surrogate who eventually becomes its leader. Based on actual eve",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "Won 1 Oscar. 45 wins & 213 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMjUyOTE1NjI0OF5BMl5BanBnXkFtZTgwMTM4ODQ5NTM@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.5/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "96%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "83/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Alien",
+          "Year": "1979",
+          "Rated": "R",
+          "Released": "22 Jun 1979",
+          "Runtime": "117 min",
+          "Genre": "Horror, Sci-Fi",
+          "Director": "Ridley Scott",
+          "Actors": "Sigourney Weaver, Tom Skerritt, John Hurt",
+          "Plot": "The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.",
+          "Language": "English",
+          "Country": "United Kingdom, United States",
+          "Awards": "Won 1 Oscar. 18 wins & 22 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMmQ2MmU3NzktZjAxOC00ZDZhLTk4YzEtMDMyMzcxY2IwMDAyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "8.4/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "98%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "89/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Children of Men",
+          "Year": "2006",
+          "Rated": "R",
+          "Released": "05 Jan 2007",
+          "Runtime": "109 min",
+          "Genre": "Action, Drama, Sci-Fi",
+          "Director": "Alfonso Cuarón",
+          "Actors": "Julianne Moore, Clive Owen, Chiwetel Ejiofor",
+          "Plot": "In 2027, in a chaotic world in which women have become somehow infertile, a former activist agrees to help transport a miraculously pregnant woman to a sanctuary at sea.",
+          "Language": "English, German, Italian, Romanian, Spanish, Arabic, Georgian, Russian, Serbian",
+          "Country": "United States, United Kingdom, Japan",
+          "Awards": "Nominated for 3 Oscars. 49 wins & 89 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMTQ5NTI2NTI4NF5BMl5BanBnXkFtZTcwNjk2NDA2OQ@@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.9/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "92%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "84/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Children of the Corn",
+          "Year": "1984",
+          "Rated": "R",
+          "Released": "09 Mar 1984",
+          "Runtime": "92 min",
+          "Genre": "Horror, Thriller",
+          "Director": "Fritz Kiersch",
+          "Actors": "Peter Horton, Linda Hamilton, R.G. Armstrong",
+          "Plot": "A young couple is trapped in a remote town where a dangerous religious cult of children believes that everyone over age 18 must be killed.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "1 win & 3 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMDg3OTc2OTQtZDA0My00YTJiLTg3ZTYtOGYwZWM1NWVhZDdiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "5.6/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "36%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "45/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "28 Days Later...",
+          "Year": "2002",
+          "Rated": "R",
+          "Released": "27 Jun 2003",
+          "Runtime": "113 min",
+          "Genre": "Drama, Horror, Sci-Fi",
+          "Director": "Danny Boyle",
+          "Actors": "Cillian Murphy, Naomie Harris, Christopher Eccleston",
+          "Plot": "Four weeks after a mysterious, incurable virus spreads throughout the UK, a handful of survivors try to find sanctuary.",
+          "Language": "English, Spanish",
+          "Country": "United Kingdom",
+          "Awards": "10 wins & 32 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BYTFkM2ViMmQtZmI5NS00MjQ2LWEyN2EtMTI1ZmNlZDU3MTZjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.6/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "87%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "73/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Blade Runner",
+          "Year": "1982",
+          "Rated": "R",
+          "Released": "25 Jun 1982",
+          "Runtime": "117 min",
+          "Genre": "Action, Drama, Sci-Fi",
+          "Director": "Ridley Scott",
+          "Actors": "Harrison Ford, Rutger Hauer, Sean Young",
+          "Plot": "A blade runner must pursue and terminate four replicants who stole a ship in space, and have returned to Earth to find their creator.",
+          "Language": "English, German, Cantonese, Japanese, Hungarian, Arabic, Korean",
+          "Country": "United States",
+          "Awards": "Nominated for 2 Oscars. 12 wins & 19 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "8.1/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "89%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "84/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Blade Runner 2049",
+          "Year": "2017",
+          "Rated": "R",
+          "Released": "06 Oct 2017",
+          "Runtime": "164 min",
+          "Genre": "Action, Drama, Mystery",
+          "Director": "Denis Villeneuve",
+          "Actors": "Harrison Ford, Ryan Gosling, Ana de Armas",
+          "Plot": "Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years.",
+          "Language": "English, Finnish, Japanese, Hungarian, Russian, Somali, Spanish",
+          "Country": "United States, United Kingdom, Canada, Spain",
+          "Awards": "Won 2 Oscars. 101 wins & 164 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "8.0/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "88%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "81/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Blade",
+          "Year": "1998",
+          "Rated": "R",
+          "Released": "21 Aug 1998",
+          "Runtime": "120 min",
+          "Genre": "Action, Horror, Sci-Fi",
+          "Director": "Stephen Norrington",
+          "Actors": "Wesley Snipes, Stephen Dorff, Kris Kristofferson",
+          "Plot": "A half-vampire, half-mortal man becomes a protector of the mortal race, while slaying evil vampires.",
+          "Language": "English, Russian, Serbian",
+          "Country": "United States",
+          "Awards": "5 wins & 11 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BOTk2NDNjZWQtMGY0Mi00YTY2LWE5MzctMGRhZmNlYzljYTg5XkEyXkFqcGdeQXVyMTAyNjg4NjE0._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.1/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "57%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "47/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Blade II",
+          "Year": "2002",
+          "Rated": "R",
+          "Released": "22 Mar 2002",
+          "Runtime": "117 min",
+          "Genre": "Action, Horror, Sci-Fi",
+          "Director": "Guillermo del Toro",
+          "Actors": "Wesley Snipes, Kris Kristofferson, Ron Perlman",
+          "Plot": "Blade forms an uneasy alliance with the vampire council in order to combat the Reapers, who are feeding on vampires.",
+          "Language": "English, Romanian, Czech",
+          "Country": "Germany, United States",
+          "Awards": "6 wins & 10 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BOWVjZTIzNDYtNTBlNC00NTJjLTkzOTEtOTE0MjlhYzI2YTcyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "6.7/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "57%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "52/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Blade: Trinity",
+          "Year": "2004",
+          "Rated": "R",
+          "Released": "08 Dec 2004",
+          "Runtime": "113 min",
+          "Genre": "Action, Horror, Sci-Fi",
+          "Director": "David S. Goyer",
+          "Actors": "Wesley Snipes, Kris Kristofferson, Parker Posey",
+          "Plot": "Blade, now a wanted man by the FBI, must join forces with the Nightstalkers to face his most challenging enemy yet: Dracula.",
+          "Language": "English, Esperanto",
+          "Country": "United States",
+          "Awards": "1 nomination",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMjE0Nzg2MzI3MF5BMl5BanBnXkFtZTYwMjExODQ3._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "5.8/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "25%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "38/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Straight Outta Compton",
+          "Year": "2015",
+          "Rated": "R",
+          "Released": "14 Aug 2015",
+          "Runtime": "147 min",
+          "Genre": "Biography, Drama, History",
+          "Director": "F. Gary Gray",
+          "Actors": "O'Shea Jackson Jr., Corey Hawkins, Jason Mitchell",
+          "Plot": "The rap group NWA emerges from the mean streets of Compton in Los Angeles, California, in the mid-1980s and revolutionizes Hip Hop culture with their music and tales about life in the hood.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "Nominated for 1 Oscar. 28 wins & 40 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMTA5MzkyMzIxNjJeQTJeQWpwZ15BbWU4MDU0MDk0OTUx._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.8/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "89%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "72/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Get Out",
+          "Year": "2017",
+          "Rated": "R",
+          "Released": "24 Feb 2017",
+          "Runtime": "104 min",
+          "Genre": "Horror, Mystery, Thriller",
+          "Director": "Jordan Peele",
+          "Actors": "Daniel Kaluuya, Allison Williams, Bradley Whitford",
+          "Plot": "A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point.",
+          "Language": "English",
+          "Country": "United States, Japan",
+          "Awards": "Won 1 Oscar. 151 wins & 209 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMjUxMDQwNjcyNl5BMl5BanBnXkFtZTgwNzcwMzc0MTI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.7/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "98%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "85/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Jumpin' Jack Flash",
+          "Year": "1986",
+          "Rated": "R",
+          "Released": "10 Oct 1986",
+          "Runtime": "105 min",
+          "Genre": "Comedy, Romance, Thriller",
+          "Director": "Penny Marshall",
+          "Actors": "Whoopi Goldberg, Stephen Collins, John Wood",
+          "Plot": "An American computer wiz who works at a New York bank is suddenly thrust into the world of international espionage after she inadvertently receives a coded message from a British spy.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "2 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMDJmYjMxODgtZjgwMi00N2E0LWE0N2UtMzhjMmJkNGZiNDNhXkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "5.9/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "27%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "52/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "The Green Mile",
+          "Year": "1999",
+          "Rated": "R",
+          "Released": "10 Dec 1999",
+          "Runtime": "189 min",
+          "Genre": "Crime, Drama, Fantasy",
+          "Director": "Frank Darabont",
+          "Actors": "Tom Hanks, Michael Clarke Duncan, David Morse",
+          "Plot": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
+          "Language": "English, French",
+          "Country": "United States",
+          "Awards": "Nominated for 4 Oscars. 15 wins & 37 nominations total",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "8.6/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "78%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "61/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "The Green Knight",
+          "Year": "2021",
+          "Rated": "R",
+          "Released": "30 Jul 2021",
+          "Runtime": "130 min",
+          "Genre": "Adventure, Drama, Fantasy",
+          "Director": "David Lowery",
+          "Actors": "Dev Patel, Alicia Vikander, Joel Edgerton",
+          "Plot": "A fantasy retelling of the medieval story of Sir Gawain and the Green Knight.",
+          "Language": "English",
+          "Country": "Ireland, Canada, United States",
+          "Awards": "7 wins & 87 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNTdiNWMtOWY0My00MjM4LTkwNzMtOGI0YThhN2Q4M2I4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "6.6/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "89%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "85/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "A Nightmare on Elm Street",
+          "Year": "1984",
+          "Rated": "R",
+          "Released": "16 Nov 1984",
+          "Runtime": "91 min",
+          "Genre": "Horror",
+          "Director": "Wes Craven",
+          "Actors": "Heather Langenkamp, Johnny Depp, Robert Englund",
+          "Plot": "Teenager Nancy Thompson must uncover the dark truth concealed by her parents after she and her friends become targets of the spirit of a serial killer with a bladed glove in their dreams, in which if they die, it kills them in real l",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "5 wins & 6 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BNzFjZmM1ODgtMDBkMS00NWFlLTg2YmUtZjc3ZTgxMjE1OTI2L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.5/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "95%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "76/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "A Nightmare on Elm Street",
+          "Year": "2010",
+          "Rated": "R",
+          "Released": "30 Apr 2010",
+          "Runtime": "95 min",
+          "Genre": "Crime, Drama, Horror",
+          "Director": "Samuel Bayer",
+          "Actors": "Jackie Earle Haley, Rooney Mara, Kyle Gallner",
+          "Plot": "The spectre of a disfigured man haunts the children of the parents who murdered him, stalking and killing them in their dreams.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "2 wins & 11 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BODIxMTQ0NTIxM15BMl5BanBnXkFtZTcwMzY1NDAyMw@@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "5.2/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "15%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "35/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "A Nightmare on Elm Street 3: Dream Warriors",
+          "Year": "1987",
+          "Rated": "R",
+          "Released": "27 Feb 1987",
+          "Runtime": "96 min",
+          "Genre": "Fantasy, Horror",
+          "Director": "Chuck Russell",
+          "Actors": "Heather Langenkamp, Robert Englund, Craig Wasson",
+          "Plot": "A psychiatrist familiar with knife-wielding dream demon Freddy Krueger helps teens at a mental hospital battle the killer who is invading their dreams.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "1 win & 4 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BMjFkYTEwNjAtYWU1YS00NTMyLTkwYmUtZjEyMjZjMDg5Njc5XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "6.6/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "72%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "49/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "A Nightmare on Elm Street 2: Freddy's Revenge",
+          "Year": "1985",
+          "Rated": "R",
+          "Released": "01 Nov 1985",
+          "Runtime": "87 min",
+          "Genre": "Horror",
+          "Director": "Jack Sholder",
+          "Actors": "Robert Englund, Mark Patton, Kim Myers",
+          "Plot": "A teenage boy is haunted in his dreams by deceased child murderer Freddy Krueger, who is out to possess him in order to continue his reign of terror in the real world.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "2 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BZjBmNWNiN2ItYzM0ZC00MWQyLWFmZjctMmZkNTVhMjE1ZjFhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "5.5/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "41%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "43/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "A Nightmare on Elm Street 4: The Dream Master",
+          "Year": "1988",
+          "Rated": "R",
+          "Released": "19 Aug 1988",
+          "Runtime": "93 min",
+          "Genre": "Horror",
+          "Director": "Renny Harlin",
+          "Actors": "Robert Englund, Rodney Eastman, John Beckman",
+          "Plot": "Freddy Krueger returns once again to terrorize the dreams of the remaining Dream Warriors, as well as those of a young woman who may be able to defeat him for good.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "2 wins & 9 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BN2IwODlmN2ItOGU5NC00ZTBhLWJhZjItMTdkOTI1NTU4YzdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "5.7/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "52%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "56/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "Freddy's Dead: The Final Nightmare",
+          "Year": "1991",
+          "Rated": "R",
+          "Released": "13 Sep 1991",
+          "Runtime": "89 min",
+          "Genre": "Fantasy, Horror",
+          "Director": "Rachel Talalay",
+          "Actors": "Robert Englund, Lisa Zane, Shon Greenblatt",
+          "Plot": "Dream-haunting Freddy Krueger returns once again to prowl the nightmares of Springwood's last surviving teenager, and of a woman whose personal connection to Krueger may mean his doom.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "1 win & 4 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BOGQ3MTdiYjQtZmU1NC00NmQ5LTg2YTMtYWI0NjA5MzUwZTFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "4.9/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "22%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "39/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        },
+        {
+          "Title": "A Nightmare on Elm Street 5: The Dream Child",
+          "Year": "1989",
+          "Rated": "R",
+          "Released": "11 Aug 1989",
+          "Runtime": "89 min",
+          "Genre": "Fantasy, Horror",
+          "Director": "Stephen Hopkins",
+          "Actors": "Robert Englund, Lisa Wilcox, Kelly Jo Minter",
+          "Plot": "The pregnant Alice finds Freddy Krueger striking through the sleeping mind of her unborn child, hoping to be reborn into the real world.",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "3 wins & 2 nominations",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BZmMzNzc1ZTItMDJiOS00Y2UxLWEzZmEtMzBiNGNkYzNiNDBkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "5.1/10"
+            },
+            {
+              "Source": "Rotten Tomatoes",
+              "Value": "29%"
+            },
+            {
+              "Source": "Metacritic",
+              "Value": "54/100"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        }
+      ]
+    }
+  ],
+  "Preferences": [
+    "Action",
+    "Adventure"
+  ]
+}

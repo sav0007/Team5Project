@@ -1,0 +1,39 @@
+{
+  "userName": "Test",
+  "password": "1",
+  "UserCollections": [
+    {
+      "Collectionname": "test collect name",
+      "Description": "test desc name",
+      "movies": [
+        {
+          "Title": "Shrek the Musical",
+          "Year": "2013",
+          "Rated": "TV-G",
+          "Released": "17 Sep 2013",
+          "Runtime": "130 min",
+          "Genre": "Comedy, Family, Fantasy",
+          "Director": "Michael John Warren",
+          "Actors": "Brian d'Arcy James, Sutton Foster, Christopher Sieber",
+          "Plot": "Make room for ogre-sized family fun as the greatest fairy tale never told comes to life in a whole new way in this breathtaking Broadway musical adaptation of the hit movie Shrek!",
+          "Language": "English",
+          "Country": "United States",
+          "Awards": "N/A",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BN2U4YzBhNmYtNzAxZS00ZjcyLTg5NDEtMDM4ODVkMTZlZmNkXkEyXkFqcGdeQXVyNzMwOTY2NTI@._V1_SX300.jpg",
+          "Ratings": [
+            {
+              "Source": "Internet Movie Database",
+              "Value": "7.0/10"
+            }
+          ],
+          "userRatings": [],
+          "userReviews": []
+        }
+      ]
+    }
+  ],
+  "Preferences": [
+    "Action",
+    "Drama"
+  ]
+}
