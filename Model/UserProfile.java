@@ -95,7 +95,7 @@ public class UserProfile {
     }
 
 
-    public MovieDatabase getCollection(int i) {
+    public Collections getCollection(int i) {
         return UserCollections.get(i);
     }
 
