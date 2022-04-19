@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 
-public class CollectionsPage extends JPanel {
+public class CollectionsPage extends JPanel{
 
 
     public JPanel CollectionsCard(UserProfile profile){
@@ -21,10 +21,18 @@ public class CollectionsPage extends JPanel {
         Collections.setLayout(new GridBagLayout());
         Collections.setBackground(Color.DARK_GRAY);
         Collections.setForeground(Color.black);
+        JPanel osPanel = new JPanel(new GridLayout(1,2));
 
         if (profile == null) {
             return Collections;
         }
+        GridBagConstraints CollectConst = new GridBagConstraints();
+        CollectConst.gridy = 0;
+        JButton AddCollection = new JButton("Create Collection");
+        JButton DeleteCollection = new JButton("Delete Collection");
+        osPanel.add(AddCollection);
+        osPanel.add(DeleteCollection);
+        Collections.add(osPanel);
         for (int i = 0; i < profile.getUserCollections().size(); i++){
             JButton comp = new JButton();
             comp.setBackground(Color.LIGHT_GRAY);
@@ -76,14 +84,21 @@ public class CollectionsPage extends JPanel {
             c.gridx = 1;
             c.gridy = 1;
             comp.add(CollectionDescription, c);
-            c.fill = GridBagConstraints.BOTH;
-            c.gridwidth = 1;
-            c.ipadx = 0;
-            c.weighty = 0.00;
-            c.weightx = 0.00;
-            c.gridx = 0;
-            c.gridy = i;
-            Collections.add(comp, c);
+            int finalI = i;
+            comp.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) { // this should redirect to the movie list in some way im not sure how yet
+                    int j = finalI;
+                    MovieListing Le = new MovieListing();
+                    JPanel a = new JPanel();
+                    a = Le.listingCard(profile.getCollection(j));
+                    a.setVisible(true);
+                    //Collections.add(a);
+
+                }
+            });
+            CollectConst.gridy = i + 1;
+            Collections.add(comp, CollectConst);
         }
 
         Collections.setVisible(true);
@@ -96,7 +111,23 @@ public class CollectionsPage extends JPanel {
 
 
 
+/*
 
+            c.fill = GridBagConstraints.BOTH;
+            c.gridheight = 1;
+            c.gridwidth = 1;
+            c.ipadx = 0;
+            c.ipady = 0;
+            c.weighty = 0.001;
+            c.weightx = 0.001;
+            c.gridx = 0;
+            c.gridy = i;
+            c.anchor = GridBagConstraints.PAGE_START;
+
+
+
+
+ */
 
 
 

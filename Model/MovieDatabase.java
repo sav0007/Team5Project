@@ -19,31 +19,54 @@ import java.util.Date;
 public class MovieDatabase
 {
 
+    private ArrayList<Movie> movies;
 
+    /**
+     * setter for movies
+     * @param movies MovieDatabase to be replaced with current movie database
+     */
     public void setMovies(MovieDatabase movies) {
         this.movies = movies.getMovies();
     }
 
-    private ArrayList<Movie> movies;
-
+    /**
+     * default constructor
+     */
     public MovieDatabase()
     {
         movies = new ArrayList<Movie>();
     }
 
+    /**
+     * adds a movie to the movies instance
+     * @param movie movie to be added to instance
+     */
     public void addMovie(Movie movie)
     {
         movies.add(movie);
     }
 
+    /**
+     * getter for a specific movie in the database
+     * @param i index for specific movie
+     * @return movie at given index
+     */
     public Movie getMovie(int i){
         return movies.get(i);
     }
 
+    /**
+     * getter for movies
+     * @return ArrayList of movies in movie database
+     */
     public ArrayList<Movie> getMovies() {
         return movies;
     }
 
+    /**
+     *  Parses a list of movies from a json file and builds a database from the movies in the file
+     * @param filename name of json file containing movies not currently in use should be fine to include but i dont remember if i tested it or not
+     */
     public void buildDatabaseJson(String filename)
     {
         Gson gson = new Gson();
@@ -70,11 +93,17 @@ public class MovieDatabase
 
     }
 
+    /**
+     * Alphabetic sorting function for movies uses a compareto method
+     */
     public void sortAlphaAZ()
     {
         Collections.sort(movies);
     }
 
+    /**
+     *  Reverse Alphabetic sorting function for movies using a comparator method
+     */
     public void sortAlphaZA()
     {
         Comparator<Movie> sortTitleZA = new Comparator<Movie>() {
@@ -94,6 +123,9 @@ public class MovieDatabase
         Collections.sort(movies, sortTitleZA);
     }
 
+    /**
+     * Sorting function for movies sorts by Year from Oldest to Newest
+     */
     public void sortDateOld()
     {
         Comparator<Movie> sortYear = new Comparator<Movie>() {
@@ -112,6 +144,10 @@ public class MovieDatabase
         };
         Collections.sort(movies, sortYear);
     }
+
+    /**
+     * Sorting Function for movies sorts by Year from Newest to Oldest
+     */
     public void sortDateNew()
     {
         Comparator<Movie> sortYear = new Comparator<Movie>() {

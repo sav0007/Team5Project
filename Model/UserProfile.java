@@ -89,28 +89,42 @@ public class UserProfile {
         Preferences.remove(Preference);
     }
 
-
+    /**
+     * getter for UserCollection
+     * @return returns the User Collection list
+     */
     public ArrayList<Collections> getUserCollections() {
         return UserCollections;
     }
 
-
+    /**
+     * returns a specfic Collection from the Collection list
+     * @param i the index of the given Collection
+     * @return returns the Collection from the given index
+     */
     public Collections getCollection(int i) {
         return UserCollections.get(i);
     }
 
-
+    /**
+     *  getter for userName
+     * @return returns userName
+     */
     public String getUserName() {
         return userName;
     }
 
+    /**
+     * getter for password
+     * @return password
+     */
     public String getPassword() {
         return password;
     }
 
     /** storeProfile Function
      *  preliminary method for saving UserProfile data
-     *  Uses the users username and password as a file name to make storing and retrieveing easier
+     *  Uses the users username and password as a file name to make storing and retrieval easier
      *
      */
     public void storeProfile() {
