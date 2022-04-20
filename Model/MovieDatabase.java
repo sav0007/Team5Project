@@ -1,12 +1,9 @@
 package com.company.Model;
 
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
-
-
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,12 +11,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 
 public class MovieDatabase
 {
 
-    private ArrayList<Movie> movies;
+    public ArrayList<Movie> movies;
 
     /**
      * setter for movies

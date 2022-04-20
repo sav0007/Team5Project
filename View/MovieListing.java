@@ -1,29 +1,38 @@
 package com.company.View;
 
+import com.company.Model.Movie;
 import com.company.Model.MovieDatabase;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
+import static com.company.View.LoginPage.frame;
+import static com.company.View.MainPage.createPage;
+import static com.company.View.MainPage.user;
 
 /**
  * Written by: Leela Hyatt
- * Date: 4/14/22
- * MovieListing displays movies from a search or collection
+ * MovieListing displays list of movies from a search or collection
  */
 class MovieListing {
 
     /**
-     *
-     * @return
+     * draws list of movies
+     * @param movies (MovieDatabase) list of movies to be shown
+     * @return movie listing panel
      */
     public static JPanel listingCard(MovieDatabase movies) {
         JPanel movieList = new JPanel(new FlowLayout());
         movieList.setBackground(Color.lightGray);
-
         movieList.add(options());
 
-        /*if (movies != null) {
-            for (Movie movie : movies) { // add panel for each movie
+        if (movies != null) {
+            for (Movie movie : movies ) { // add panel for each movie
                 JPanel result = new JPanel(new BorderLayout());
 
                 // get poster - left
@@ -52,7 +61,7 @@ class MovieListing {
                 pickmovie.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        MovieDescription.movieCard(movie);
+                        createPage(frame, movie, null, user);
                         MainPage.page.show(MainPage.cardPanel,"movie");
                     }
                 });
@@ -60,7 +69,7 @@ class MovieListing {
 
                 movieList.add(result);
             }
-        }*/
+        }
 
         // this panel may need a scrollbar
 
@@ -68,6 +77,10 @@ class MovieListing {
 
     }
 
+    /**
+     * adds option buttons to movie listing panel
+     * @return panel of filter/sort options
+     */
     static JPanel options() {
         JPanel oPanel = new JPanel(new GridLayout(1,9));
 

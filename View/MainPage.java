@@ -5,16 +5,27 @@ import com.company.Model.*;
 import javax.swing.*;
 import java.awt.*;
 
+import static com.company.View.LoginPage.frame;
+
 /**
  * Written by: Leela Hyatt
- * Date: 4/5/22
  * MainPage shows user the pages they can interact with, it calls other view classes to centralize view control
  */
 public class MainPage extends Login {
     static JPanel cardPanel;
     static CardLayout page;
+    protected static UserProfile user;
 
-     public static void createPage(JFrame frame, Movie movdesc, UserProfile profile) {
+    /**
+     *  draws panels and cards to be shown
+     * @param frame jframe used by login used here
+     * @param movdesc movie for movie description card
+     * @param movies movies for movie listing card
+     * @param profile profile being used
+     */
+     public static void createPage(JFrame frame, Movie movdesc, MovieDatabase movies, UserProfile profile) {
+
+         user = profile;
 
          frame.setSize(1280,720);
          frame.setLayout(null);
@@ -31,6 +42,8 @@ public class MainPage extends Login {
 
         cardPanel.add("home",homeCard());
 
+         cardPanel.add("search",MovieListing.listingCard(movies));
+
         CollectionsPage a  = new CollectionsPage();
         cardPanel.add("Collections", a.CollectionsCard(profile));
         // add all pages here
@@ -41,6 +54,10 @@ public class MainPage extends Login {
         frame.add(cardPanel);
     }
 
+    /**
+     * draws top bar with home button, collections button, search bar, and profile button
+     * @return top bar panel
+     */
     static public JPanel drawTopBar() {
         JPanel topBar = new JPanel();
         topBar.setLayout(new GridLayout());
@@ -64,11 +81,11 @@ public class MainPage extends Login {
         searchB.setBackground(Color.orange);
         searchB.addActionListener(e -> {
             String input = searchBar.getText();
-            MovieSearch userSearch = new MovieSearch(null);
-            MovieDatabase movies = userSearch.Search(input);
-            cardPanel.add("search",MovieListing.listingCard(movies));
+            final MovieSearch search = new MovieSearch(movies);
+            search.filterByTitle(input);
+            MovieDatabase results = search.getResults();
+            createPage(frame, null, results, user);
             page.show(cardPanel,"search");
-
         });
         searchP.add(searchBar);
         searchP.add(searchB);
@@ -87,6 +104,10 @@ public class MainPage extends Login {
         return topBar;
     }
 
+    /**
+     * draws home page
+     * @return home page panel
+     */
     static public JPanel homeCard() {
         JPanel home = new JPanel(new FlowLayout());
 
