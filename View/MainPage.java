@@ -1,13 +1,9 @@
 package com.company.View;
 
-import com.company.Model.Login;
-import com.company.Model.Movie;
-import com.company.Model.UserProfile;
+import com.company.Model.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Written by: Leela Hyatt
@@ -35,14 +31,12 @@ public class MainPage extends Login {
 
         cardPanel.add("home",homeCard());
 
-        cardPanel.add("list",MovieListing.listingCard(null));
-
         CollectionsPage a  = new CollectionsPage();
         cardPanel.add("Collections", a.CollectionsCard(profile));
         // add all pages here
 
         page = (CardLayout)(cardPanel.getLayout());
-        page.show(cardPanel,"list");
+        page.show(cardPanel,"home");
 
         frame.add(cardPanel);
     }
@@ -55,33 +49,39 @@ public class MainPage extends Login {
 
         JButton homeB = new JButton("Good Views");
         homeB.setBackground(Color.orange);
-        homeB.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                page.show(cardPanel,"home");
-            }
-        });
+        homeB.addActionListener(e -> page.show(cardPanel,"home"));
 
         JButton collectB = new JButton("Collections");
         collectB.setBackground(Color.gray);
-        collectB.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                page.show(cardPanel,"Collections");
-            }
+        collectB.addActionListener(e -> page.show(cardPanel,"Collections"));
+
+        JPanel searchP = new JPanel(null);
+        searchP.setBackground(Color.orange);
+        JTextField searchBar = new JTextField();
+        searchBar.setBounds(0,12,240,25);
+        JButton searchB = new JButton("Search");
+        searchB.setBounds(240,0,80,50);
+        searchB.setBackground(Color.orange);
+        searchB.addActionListener(e -> {
+            String input = searchBar.getText();
+            MovieSearch userSearch = new MovieSearch(null);
+            MovieDatabase movies = userSearch.Search(input);
+            cardPanel.add("search",MovieListing.listingCard(movies));
+            page.show(cardPanel,"search");
+
         });
+        searchP.add(searchBar);
+        searchP.add(searchB);
 
         JButton profileB = new JButton("Profile");
-        profileB.setBackground(Color.orange);
-        profileB.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // show profile page
-            }
+        profileB.setBackground(Color.gray);
+        profileB.addActionListener(e -> {
+            // show profile page
         });
 
         topBar.add(homeB);
         topBar.add(collectB);
+        topBar.add(searchP);
         topBar.add(profileB);
 
         return topBar;

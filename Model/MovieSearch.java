@@ -1,6 +1,6 @@
-package com.company;
+package com.company.Model;
 
-public class MovieSearch extends MovieDatabase{
+public class MovieSearch extends MovieDatabase {
 
     private String movietitle;
     MovieDatabase searchResults;
