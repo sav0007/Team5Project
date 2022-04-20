@@ -98,16 +98,10 @@ public class CollectionsPage extends MainPage{
                 @Override
                 public void actionPerformed(ActionEvent e) { // this should redirect to the movie list in some way im not sure how yet
                     int j = finalI;
-                    MovieListing Le = new MovieListing();
-                    JPanel a = new JPanel();
- //                   a = Le.listingCard(profile.getCollection(j));
-                    //Collections.removeAll();
-                    //Collections = Le.listingCard(profile.getCollection(j));
-                    //CollectConst = new GridBagConstraints();
-                    //Collections.add(Le.listingCard(uprof.getCollection(j)), CollectConst);
                     MovieListing.listingCard(uprof.getCollection(j));
-                    cardPanel.add("Collections",MovieListing.listingCard(uprof.getCollection(j)));
-                    page.show(cardPanel,"Collections"); //
+                    cardPanel.add("MovieListings",MovieListing.listingCard(uprof.getCollection(j)));
+                    page.show(cardPanel,"MovieListings"); //
+
                 }
 
             });
