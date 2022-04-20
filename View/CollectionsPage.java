@@ -107,7 +107,7 @@ public class CollectionsPage extends MainPage{
                     //Collections.add(Le.listingCard(uprof.getCollection(j)), CollectConst);
                     MovieListing.listingCard(uprof.getCollection(j));
                     cardPanel.add("Collections",MovieListing.listingCard(uprof.getCollection(j)));
-                    page.show(cardPanel,"Collections");
+                    page.show(cardPanel,"Collections"); //
                 }
 
             });
