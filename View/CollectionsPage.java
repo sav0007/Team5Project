@@ -11,13 +11,22 @@ import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 
+import static com.company.View.LoginPage.frame;
 
-public class CollectionsPage extends JPanel{
 
+public class CollectionsPage extends MainPage{
 
-    public JPanel CollectionsCard(UserProfile profile){
-        JPanel Collections = new JPanel();
+    private JPanel Collections;
+    private GridBagConstraints CollectConst;
+    private UserProfile uprof;
 
+    CollectionsPage(){
+        Collections = new JPanel();
+        CollectConst = new GridBagConstraints();
+    }
+
+    public JPanel CollectionsCard(UserProfile profile) {
+        uprof = profile;
         Collections.setLayout(new GridBagLayout());
         Collections.setBackground(Color.DARK_GRAY);
         Collections.setForeground(Color.black);
@@ -26,7 +35,7 @@ public class CollectionsPage extends JPanel{
         if (profile == null) {
             return Collections;
         }
-        GridBagConstraints CollectConst = new GridBagConstraints();
+
         CollectConst.gridy = 0;
         JButton AddCollection = new JButton("Create Collection");
         JButton DeleteCollection = new JButton("Delete Collection");
@@ -91,11 +100,16 @@ public class CollectionsPage extends JPanel{
                     int j = finalI;
                     MovieListing Le = new MovieListing();
                     JPanel a = new JPanel();
-                    a = Le.listingCard(profile.getCollection(j));
-                    a.setVisible(true);
-                    //Collections.add(a);
-
+ //                   a = Le.listingCard(profile.getCollection(j));
+                    //Collections.removeAll();
+                    //Collections = Le.listingCard(profile.getCollection(j));
+                    //CollectConst = new GridBagConstraints();
+                    //Collections.add(Le.listingCard(uprof.getCollection(j)), CollectConst);
+                    MovieListing.listingCard(uprof.getCollection(j));
+                    cardPanel.add("Collections",MovieListing.listingCard(uprof.getCollection(j)));
+                    page.show(cardPanel,"Collections");
                 }
+
             });
             CollectConst.gridy = i + 1;
             Collections.add(comp, CollectConst);
