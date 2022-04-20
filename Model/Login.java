@@ -1,4 +1,5 @@
 package com.company.Model;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -6,85 +7,70 @@ import com.google.gson.JsonParser;
 
 import java.io.*;
 import java.util.ArrayList;
-public class Login extends UserProfile {
+import java.util.HashMap;
+import java.util.Map;
 
-    /**
-     * This array stores the Users that will be created for the UserProfile type
-     */
-    ArrayList<UserList>Users = new ArrayList<>();
+public class Login {
+    private static final String UsersDatabaseFilename = "UserList.json";
+    private static UserProfile CurrentUser;
+    private static Map<String, LoginInfo> Users;
 
-
-
-    private UserProfile User;
-    /**
-     * Basic constructor for the UserProfile class
-     * @param user : UserProfile userName field
-     * @param pass : UserProfile password field
-     */
-    public Login(String user, String pass) {
-        super(user, pass);
+    public static UserProfile getCurrentUser() {
+        return CurrentUser;
     }
 
-    public Login(){
+    public static boolean checkInfo(final String username, final String password){
+        final LoginInfo user = Users.get(username);
 
-    }
-
-
-    /**
-     * checkUserPass checks if the
-     * @param aUser : UserProfile userName field
-     * @param aPass : UserProfile password field
-     * @return Returns true if the data fields matches up to a saved user. False otherwise
-     */
-    public boolean checkUserPass(String aUser, String aPass) {
-        UserProfile tempUser = new UserProfile(aUser, aPass);
-        if(Users.contains(tempUser)){
-            return true;
+        if (user != null) {
+            if (password.compareTo(user.getPassword()) == 0) {
+                final String tempS = username + password;
+                CurrentUser = loadProfile(tempS);
+                return true;
+            }
         }
+
         return false;
     }
 
-    /**
-     * This method creates a new object with the entered fields and adds it to the arraylist
-     * @param aUser : UserProfile userName field
-     * @param aPass : UserProfile password field
-     */
-    public void createUser(String aUser, String aPass) { // needs more still
-        UserList newUser = new UserList(aUser, aPass);
-        Users.add(newUser);
+    // TODO: Ask about saving preferences and collections to Will.
+    public static void logout(){
+        CurrentUser = null;
     }
 
-    /**
-     * This function creates a tempUser with a garbage username and password
-     * The garbage is used to iterate a new UserProfile object but
-     * not one that will be saved under the arraylist
-     */
-    public void enterGuest() {
-        String user = "Guest";
-        String pass = "1234";
-        UserProfile tempUser = new UserProfile(user, pass);
+    public static void enterAsGuest(String Username, String Pass) {
+        CurrentUser = new UserProfile(Username, Pass);
     }
 
-    public UserProfile loadProfile(String prof)
+    public static UserProfile loadProfile(String prof)
     {
-        Gson gson = new Gson();
-        UserProfile bruh = new UserProfile();
+        final Gson gson = new Gson();
         try {
-            FileReader reader = new FileReader(prof + ".json");
-            bruh = gson.fromJson(reader, UserProfile.class);
-            User = bruh;
-            return bruh;
+            final FileReader reader = new FileReader(prof + ".json");
+            return gson.fromJson(reader, UserProfile.class);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return bruh;
+        return null;
     }
 
-    public UserProfile getUser() {
-        return User;
-    }
-    public void setUser(UserProfile user) {
-        User = user;
+    public static void loadUserList(){
+        final Gson gson = new Gson();
+
+        final JsonParser jsonParser = new JsonParser();
+        Users = new HashMap<>();
+
+        try {
+            final FileReader reader = new FileReader(UsersDatabaseFilename);
+            final Object obj = jsonParser.parse(reader);
+            final JsonArray loginInfoJsonObj = (JsonArray) obj;
+            for (int i = 0; i < loginInfoJsonObj.size(); i++) {
+                final LoginInfo user = gson.fromJson(loginInfoJsonObj.get(i), LoginInfo.class);
+                Users.put(user.getUsername(), user);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void storeUserList(){
@@ -97,54 +83,18 @@ public class Login extends UserProfile {
             String temp;
             temp = "UserList";
             File tempFile = new File(temp + ".json");
-            ArrayList<UserList> tempUsers = Users;
+            ArrayList<LoginInfo> tempUsers = new ArrayList<>(Users.values());
             try {
                 FileWriter a = new FileWriter(tempFile);
                 tempFile.createNewFile();
                 gson1.toJson(tempUsers, a);
                 a.close();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            catch (IllegalStateException e){
+            } catch (IOException | IllegalStateException e) {
                 e.printStackTrace();
             }
         }
     }
-
-    public ArrayList<UserList> loadUserList(){
-        Gson gson = new Gson();
-        JsonArray tempuserList = new JsonArray();
-        JsonParser jsonParser = new JsonParser();
-        ArrayList<UserList> bruh = new ArrayList<>();
-        try {
-            FileReader reader = new FileReader("UserList.json");
-            Object obj = jsonParser.parse(reader);
-            tempuserList = (JsonArray) obj;
-            UserList tempUL = new UserList();
-            for (int i = 0; i < tempuserList.size(); i++) {
-                tempUL = gson.fromJson(tempuserList.get(i), UserList.class);
-                bruh.add(tempUL);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        Users = bruh;
-        return bruh;
-    }
-
-    public boolean checkInfo (String Username, String Pass){
-        for (int i = 0; i < Users.size(); i++){
-            if(Username.compareTo(Users.get(i).getUsername()) == 0 && Pass.compareTo(Users.get(i).getPassword()) == 0){
-                String tempS = Username + Pass;
-                User = loadProfile(tempS);
-                return true;
-            }
-        }
-        return false;
-    }
-
-
 }
+
 
