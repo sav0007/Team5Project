@@ -13,44 +13,37 @@ public class UserProfile {
     /**
      *  Setting the attributes of the Class to protected
      */
-    protected String userName; protected String password;
-
+    private LoginInfo loginInfo;
 
 
     /**
      * Creating the Collections and Preferences arrays of MovieDatabase type
      */
-    ArrayList<Collections> UserCollections;
-    ArrayList<String>Preferences;
+    private ArrayList<Collections> UserCollections = new ArrayList<>();
+    private ArrayList<String> Preferences = new ArrayList<>();
 
     /**
      Basic constructor for the UserProfile class
      */
     public UserProfile(String user, String pass)
     {
-        userName = user;
-        password = pass;
-    }
-
-    public UserProfile(){
-        UserCollections = new ArrayList<>();
-        Preferences = new ArrayList<>();
+        loginInfo = new LoginInfo(user, pass);
     }
 
     /**
      * This changes the UserProfile's set username
      * @param userInput : UserProfile field
      */
-    public void changeUsername(String userInput){
-        userName = userInput;
+    public void changeUsername(final String userInput) {
+        this.loginInfo = new LoginInfo(userInput, loginInfo.getPassword());
     }
 
     /**
      * This changes the UserProfile's set password
      * @param passwordInput : UserProfile field
      */
-    public void changePassword(String passwordInput){
-        password = passwordInput;
+    public void changePassword(final String passwordInput) {
+        this.loginInfo = new LoginInfo(loginInfo.getUsername(), passwordInput);
     }
 
     /**
@@ -59,8 +52,8 @@ public class UserProfile {
      * @param Collection : MovieDatabase type that gets added to
      *                     the collections array
      */
-    public void createCollection(Collections Collection){
-        UserCollections.add(Collection);
+    public void createCollection(final Collections Collection){
+        this.UserCollections.add(Collection);
     }
 
     /**
@@ -69,24 +62,24 @@ public class UserProfile {
      * @param Collection : MovieDatabase type that gets removed
      *                     from the collections array
      */
-    public void deleteCollection(MovieDatabase Collection){
-        UserCollections.remove(Collection);
+    public void deleteCollection(final MovieDatabase Collection){
+        this.UserCollections.remove(Collection);
     }
 
     /**
      * This method adds the preference of MovieDatabase type to the array
      * @param Preference : MovieDatabase fields
      */
-    public void addPreference(String Preference){
-        Preferences.add(Preference);
+    public void addPreference(final String Preference){
+        this.Preferences.add(Preference);
     }
 
     /**
      * This method removes the preference of MovieDatabase type from the array
      * @param Preference : MovieDatabase fields
      */
-    public void deletePreference(MovieDatabase Preference){
-        Preferences.remove(Preference);
+    public void deletePreference(final MovieDatabase Preference){
+        this.Preferences.remove(Preference);
     }
 
     /**
@@ -94,7 +87,7 @@ public class UserProfile {
      * @return returns the User Collection list
      */
     public ArrayList<Collections> getUserCollections() {
-        return UserCollections;
+        return this.UserCollections;
     }
 
     /**
@@ -103,7 +96,7 @@ public class UserProfile {
      * @return returns the Collection from the given index
      */
     public Collections getCollection(int i) {
-        return UserCollections.get(i);
+        return this.UserCollections.get(i);
     }
 
     /**
@@ -111,7 +104,7 @@ public class UserProfile {
      * @return returns userName
      */
     public String getUserName() {
-        return userName;
+        return loginInfo.getUsername();
     }
 
     /**
@@ -119,13 +112,12 @@ public class UserProfile {
      * @return password
      */
     public String getPassword() {
-        return password;
+        return loginInfo.getPassword();
     }
 
     /** storeProfile Function
      *  preliminary method for saving UserProfile data
      *  Uses the users username and password as a file name to make storing and retrieval easier
-     *
      */
     public void storeProfile() {
         //GsonBuilder gson = new GsonBuilder();
@@ -136,7 +128,7 @@ public class UserProfile {
                 .disableHtmlEscaping()
                 .create();
         String temp;
-        temp = userName + password;
+        temp = loginInfo.getUsername() + loginInfo.getPassword();
         File tempFile = new File(temp + ".json");
         UserProfile tempprof = this;
         try {
@@ -145,10 +137,7 @@ public class UserProfile {
             gson1.toJson(tempprof, a);
             a.close();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        catch (IllegalStateException e){
+        } catch (IOException | IllegalStateException e) {
             e.printStackTrace();
         }
     }
