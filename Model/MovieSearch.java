@@ -1,21 +1,36 @@
 package com.company.Model;
 
-public class MovieSearch extends MovieDatabase {
+/**
+ * This class is used to perform the movie search functionality by filtering
+ * and creating sub-movie databases and retrieving the results.
+ *
+ * Example usage:
+ * final MovieSearch search = new MovieSearch(movieDb);
+ * search.filterByTitle("Batman");
+ * search.filterByMPAA("PG-13");
+ * ...
+ * search.getResults();
+ */
+public class MovieSearch {
+    private MovieDatabase movies;
 
-    private String movietitle;
-    MovieDatabase searchResults;
-    public MovieSearch(String title){
-        title = movietitle;
+    public MovieSearch(final MovieDatabase movies) {
+        this.movies = movies;
     }
 
-    public MovieDatabase Search(String Title, String Mpaa, String Date1, String Runtime, String Genre, String Directors, String Actors, String Plot, String Languages, String Country, String Awards, String Poster, String Ratings){
-        Movie o_movie = new Movie (Title,Mpaa,Date1,Runtime,Genre,Directors,Actors,Plot,Languages,Country,Awards,Poster, Ratings);
-        while(movies != null){
-            if(movies.contains(o_movie)){
-                searchResults.addMovie(o_movie);
-                return searchResults;
-            }
+    public void filterMoviesByTitle(final String title) {
+        if (title != null && !title.isBlank()) {
+            this.movies = this.movies.filterByTitle(title);
         }
-        return null;
+    }
+
+    public void filterMoviesByMPAA(final String mpaa) {
+        if (mpaa != null && !mpaa.isBlank()) {
+            this.movies = this.movies.filterMPAA(mpaa);
+        }
+    }
+
+    public MovieDatabase getResults() {
+        return this.movies;
     }
 }
