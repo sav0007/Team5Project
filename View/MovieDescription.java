@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * MovieDescription presents movie information to the user and allows the user to leave a review and add to a collection
  */
 public class MovieDescription  {
+    private static JPanel movie;
 
     /**
      * draws movie description panel
@@ -24,12 +25,11 @@ public class MovieDescription  {
      * @return movie panel
      */
     public JPanel movieCard(Movie movie1) {
-        JPanel movie = new JPanel();
-
-        movie.setLayout(null);
-        movie.setBackground(Color.lightGray);
-        movie.setForeground(Color.black);
-
+            JPanel movie = new JPanel();
+            movie.setLayout(null);
+            movie.setBackground(Color.lightGray);
+            movie.setForeground(Color.black);
+            movie.setVisible(true);
         if (movie1==null) {
             return movie;
         }

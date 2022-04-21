@@ -1,19 +1,15 @@
 package com.company.View;
 
 import com.company.Model.Movie;
-import com.company.Model.MovieDatabase;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
-import static com.company.View.LoginPage.frame;
-import static com.company.View.MainPage.createPage;
-import static com.company.View.MainPage.user;
+import static com.company.View.MainPage.cardPanel;
+import static com.company.View.MainPage.themovies;
+
 
 /**
  * Written by: Leela Hyatt
@@ -21,20 +17,24 @@ import static com.company.View.MainPage.user;
  */
 class MovieListing {
 
+    private static JPanel movieList;
+
+    MovieListing() {
+        movieList = new JPanel(new FlowLayout());
+        movieList.setBackground(Color.lightGray);
+    }
+
     /**
      * draws list of movies
-     * @param movies (MovieDatabase) list of movies to be shown
      * @return movie listing panel
      */
-    public static JPanel listingCard(MovieDatabase movies) {
-        JPanel movieList = new JPanel(new FlowLayout());
-        movieList.setBackground(Color.lightGray);
+    public static void listingCard() {
+        movieList.setVisible(true);
         movieList.add(options());
 
-        if (movies != null) {
-            for (Movie movie : movies.getMovies() ) { // add panel for each movie
+        if (themovies!= null) {
+            for (Movie movie : themovies.getMovies() ) { // add panel for each movie
                 JPanel result = new JPanel(new BorderLayout());
-
                 // get poster - left
                 String posterImage = movie.getPoster();
                 if (posterImage.compareTo("N/A") == 0) {
@@ -59,21 +59,26 @@ class MovieListing {
                 // select movie - right
                 JButton pickmovie = new JButton();
                 pickmovie.addActionListener(e -> {
-                    createPage(frame, movie, null, user);
-                    MainPage.page.show(MainPage.cardPanel,"movie");
-                    movieList.setVisible(false);
-
+                    movieList.removeAll();
+                    movieList.repaint();
+                    themovies = null;
+                    MainPage.movdesc = movie;
+                    MainPage.createPage();
+                    MainPage.page.show(cardPanel,"movie");
                 });
                 result.add(pickmovie, BorderLayout.EAST);
 
                 movieList.add(result);
+                result.setVisible(true);
             }
         }
 
+        cardPanel.repaint();
         // this panel may need a scrollbar
+    }
 
+    public static JPanel addListing() {
         return movieList;
-
     }
 
     /**
@@ -82,7 +87,6 @@ class MovieListing {
      */
     static JPanel options() {
         JPanel oPanel = new JPanel(new GridLayout(1,9));
-
         // add action listeners
 
         JButton sortAlphaAZ = new JButton("Sort Alphabetical (A-Z)");

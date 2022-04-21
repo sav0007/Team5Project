@@ -37,6 +37,7 @@ public class Login {
         }
 
     }
+
     public static boolean checkInfo(final String username, final String password){
         final LoginInfo user = Users.get(username);
 

@@ -107,7 +107,7 @@ public class LoginPage {
             }
             else {
                 panel.setVisible(false);
-                MainPage.createPage(frame, null, null, Login.getCurrentUser());
+                MainPage.createPage();
             }
         });
     }
@@ -132,7 +132,7 @@ public class LoginPage {
             else {
                 Login.createAccount(user, pass);
                 panel.setVisible(false);
-                if (Login.checkInfo(user, pass)) { MainPage.createPage(frame, null, null, Login.getCurrentUser()); }
+                if (Login.checkInfo(user, pass)) { MainPage.createPage(); }
             }
 
         });
@@ -148,7 +148,7 @@ public class LoginPage {
         guestUserButton.addActionListener(e -> {
             Login.enterAsGuest(null,null); //change?
             panel.setVisible(false);
-            MainPage.createPage(frame, null, null, Login.getCurrentUser());
+            MainPage.createPage();
         });
     }
 
