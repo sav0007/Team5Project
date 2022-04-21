@@ -47,6 +47,8 @@ public class MainPage extends Login {
         cardPanel.add("Collections", a.CollectionsCard(profile));
 
         cardPanel.add("MovieListing", MovieListing.listingCard(movies));
+
+        cardPanel.add("profile", ProfilePage.profileCard(profile));
         // add all pages here
 
         page = (CardLayout)(cardPanel.getLayout());
@@ -96,7 +98,7 @@ public class MainPage extends Login {
         JButton profileB = new JButton("Profile");
         profileB.setBackground(Color.gray);
         profileB.addActionListener(e -> {
-            // show profile page
+            page.show(cardPanel, "profile");
         });
 
         topBar.add(homeB);

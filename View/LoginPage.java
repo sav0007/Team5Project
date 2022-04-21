@@ -32,7 +32,10 @@ public class LoginPage {
     public void login() {
 
         //Creates Login Window
-        frame = new JFrame();
+        if (Objects.equals(frame,null)) {
+            frame = new JFrame();
+        }
+
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
