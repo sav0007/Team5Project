@@ -4,6 +4,7 @@ import com.company.Model.Login;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Objects;
 
 /**
  * LoginPage is the first thing the user sees when opening the app, it provides a portal to log in to personal GoodViews account
@@ -116,7 +117,22 @@ public class LoginPage {
         createAccountButton.setForeground(Color.orange);
         createAccountButton.setBounds(25, 225, 150, 25);
         createAccountButton.addActionListener(e -> {
-            // create account
+            String user = usernameText.getText();
+            String pass = passwordText.getText();
+            if (Objects.equals(user, "") || Objects.equals(pass, "")) {
+                JLabel fail = new JLabel("Enter Username and Password to Create Account");
+                fail.setBounds(50, 55, 300, 25);
+                fail.setForeground(Color.yellow);
+                panel.add(fail);
+                frame.repaint();
+            }
+            else {
+                Login.createAccount(user, pass);
+                panel.setVisible(false);
+                Login.loadUserList();
+                if (Login.checkInfo(user, pass)) { MainPage.createPage(frame, null, null, Login.getCurrentUser()); }
+            }
+
         });
     }
 
