@@ -29,6 +29,11 @@ public class MovieSearch {
             this.movies = this.movies.filterMPAA(mpaa);
         }
     }
+    public void filterMoviesByGenre(final String genre) {
+        if (genre != null && !genre.isBlank()) {
+            this.movies = this.movies.filterGenre(genre);
+        }
+    }
 
     public MovieDatabase getResults() {
         return this.movies;
