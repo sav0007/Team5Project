@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Collections extends MovieDatabase{
     private String Collectionname;
     private String Description;
+    private ArrayList<Movie> moviesArrayList = new ArrayList<>();
 
     public Collections()
     {
@@ -32,5 +33,14 @@ public class Collections extends MovieDatabase{
     public void setDatabase(MovieDatabase mb){
         setMovies(mb);
     }
+    public ArrayList<Movie> getmoviesArrayList() {
+        return this.moviesArrayList;
+    }
+    public void addToCollection(final Movie movie) {
+        this.moviesArrayList.add(movie);
 
+    }
+    public void removeFromCollection(final Movie movie) {
+        this.moviesArrayList.remove(movie);
+    }
 }
