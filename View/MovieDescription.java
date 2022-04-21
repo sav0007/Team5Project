@@ -73,7 +73,7 @@ public class MovieDescription  {
         movie.add(Review());
 
         movie.add(chooseCollect());
-        movie.add(addCollect());
+        movie.add(addCollect(movie1));
 
         return movie;
     }
@@ -168,17 +168,24 @@ public class MovieDescription  {
      *
      * @return
      */
-    protected JComboBox chooseCollect() {
-        String Collections[]  = {"Collection 1", "Collection 2", "Collection 3"};
+        protected static JComboBox chooseCollect() {
 
-        JComboBox collects = new JComboBox(Collections);
+        UserProfile temp = Login.getCurrentUser();
+        ArrayList<Collections> arrayTemp = temp.getUserCollections();
+        ArrayList<String> CollectionArray = new ArrayList<>();
+        for (int i = 0; i < arrayTemp.size(); i++) {
+            Collections zero = arrayTemp.get(i);
+            String Collection = zero.getCollectionname();
+            CollectionArray.add(Collection);
+        }
 
+        JComboBox collects = new JComboBox(CollectionArray.toArray());
         collects.setBounds(100, 550, 150, 20);
 
         collects.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // choose collection to add to movie
+
             }
         });
 
@@ -189,19 +196,33 @@ public class MovieDescription  {
      *
      * @return
      */
-    protected JButton addCollect() {
+    protected JButton addCollect(Movie movie1) {
         JButton collect = new JButton("Add to Collection");
 
         collect.setBounds(100, 580, 150, 20);
+        JComboBox collects = MovieDescription.chooseCollect();
+        String collectionName = collects.toString();
+        UserProfile profile = Login.getCurrentUser();
+        ArrayList<Collections>arrayTemp = profile.getUserCollections();
+        ArrayList<String> CollectionArray = new ArrayList<>();
+        for (int i = 0; i < arrayTemp.size(); i++) {
+            Collections zero = arrayTemp.get(i);
+            String Collection = zero.getCollectionname();
+            CollectionArray.add(Collection);
+            if (collectionName == zero.getCollectionname()){
+                zero.addToCollection(movie1);
 
+            }
+        }
         collect.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // add movie to some collection
+
             }
         });
 
+
+
         return collect;
     }
-
 }
