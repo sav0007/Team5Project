@@ -17,7 +17,7 @@ public class UserProfile {
 
 
     /**
-     * Creating the Collections and Preferences arrays of MovieDatabase type
+     * Creating the Collections and Preferences arrays
      */
     private ArrayList<Collections> UserCollections = new ArrayList<>();
     private ArrayList<String> Preferences = new ArrayList<>();
@@ -62,7 +62,7 @@ public class UserProfile {
      * @param Collection : MovieDatabase type that gets removed
      *                     from the collections array
      */
-    public void deleteCollection(final MovieDatabase Collection){
+    public void deleteCollection(final Collections Collection){
         this.UserCollections.remove(Collection);
     }
 
