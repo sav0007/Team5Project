@@ -82,7 +82,7 @@ public class MainPage extends Login {
         searchB.addActionListener(e -> {
             String input = searchBar.getText();
             final MovieSearch search = new MovieSearch(movies);
-            search.filterByTitle(input);
+            search.filterMoviesByTitle(input);
             MovieDatabase results = search.getResults();
             createPage(frame, null, results, user);
             page.show(cardPanel,"search");
