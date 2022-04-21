@@ -4,10 +4,8 @@ import com.company.Model.Login;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class LoginPage implements ActionListener {
+public class LoginPage {
 
     private static JLabel logoLabel;
     private static JLabel usernameLabel;
@@ -16,6 +14,7 @@ public class LoginPage implements ActionListener {
     private static JPasswordField passwordText;
     private static JButton loginButton;
     private static JButton createAccountButton;
+    private static JButton guestUserButton;
     private static JLabel success;
     static JFrame frame;
     static JPanel panel;
@@ -64,46 +63,72 @@ public class LoginPage implements ActionListener {
         panel.add(passwordText);
 
         // Creates Login Button
-        loginButton = new JButton("Login");
-        loginButton.setBounds(10, 160, 80, 25);
-        loginButton.setForeground(Color.orange);
-        loginButton.addActionListener(new LoginPage());
+        LoginButton();
         panel.add(loginButton);
 
         // Create Account Button
-        createAccountButton = new JButton("Create Account");
-        createAccountButton.setForeground(Color.orange);
-        createAccountButton.setBounds(100, 160, 165, 25);
+        CreateAccountButton();
         panel.add(createAccountButton);
 
-        // Creates Success response if user entry matches records
-        success = new JLabel("");
-        success.setBounds(10, 180, 300, 25);
-        panel.add(success);
-        success.setText("");
+        //Creates Guest Button
+        GuestUserButton();
+        panel.add(guestUserButton);
 
         frame.setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String userName = usernameText.getText();
-        String password = passwordText.getText();
-        Login log = new Login();
-        log.loadUserList();
-        if (log.checkInfo(userName, password) == false){
-            JLabel fail = new JLabel("Incorrect Username or Password");
-            fail.setBounds(90, 55, 300, 25);
-            fail.setForeground(Color.yellow);
-            panel.add(fail);
-            frame.repaint();
-        }
-        else {
-            panel.setVisible(false);
-            MainPage.createPage(frame, null, null, log.getCurrentUser());
-        }
-
+    /**
+     * creates login button with action listener
+     */
+    void LoginButton() {
+        loginButton = new JButton("Login");
+        loginButton.setBounds(190, 160, 75, 25);
+        loginButton.setForeground(Color.orange);
+        loginButton.addActionListener(e -> {
+            String userName = usernameText.getText();
+            String password = passwordText.getText();
+            Login log = new Login();
+            log.loadUserList();
+            if (!log.checkInfo(userName, password)){
+                JLabel fail = new JLabel("Incorrect Username or Password");
+                fail.setBounds(90, 55, 300, 25);
+                fail.setForeground(Color.yellow);
+                panel.add(fail);
+                frame.repaint();
+            }
+            else {
+                panel.setVisible(false);
+                MainPage.createPage(frame, null, null, log.getCurrentUser());
+            }
+        });
     }
+
+    /**
+     * creates create account button with action listener
+     */
+    void CreateAccountButton() {
+        createAccountButton = new JButton("Create Account");
+        createAccountButton.setForeground(Color.orange);
+        createAccountButton.setBounds(25, 225, 150, 25);
+        createAccountButton.addActionListener(e -> {
+            // create account
+        });
+    }
+
+    /**
+     * creates enter as guest button with action listener
+     */
+    void GuestUserButton() {
+        guestUserButton = new JButton("Enter as Guest");
+        guestUserButton.setBounds(205, 225, 150, 25);
+        guestUserButton.setForeground(Color.orange);
+        guestUserButton.addActionListener(e -> {
+            Login.enterAsGuest(null,null); //change?
+            panel.setVisible(false);
+            MainPage.createPage(frame, null, null, Login.getCurrentUser());
+        });
+    }
+
 }
 
 
