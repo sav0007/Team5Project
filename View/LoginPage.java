@@ -108,7 +108,6 @@ public class LoginPage implements ActionListener {
 
 
 /*
-
         if(userName.equals("Ace") && password.equals("octopus")) {
             success.setText("Login Successful");
             panel.setVisible(false);
@@ -131,13 +130,9 @@ public class LoginPage implements ActionListener {
             log.loadProfile("Willsure");
             MainPage.createPage(frame, null, log.getUser());
         }
-
         else {
             success.setText("");
         }
-
-
-
 
 
 

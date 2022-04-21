@@ -32,7 +32,7 @@ class MovieListing {
         movieList.add(options());
 
         if (movies != null) {
-            for (Movie movie : movies ) { // add panel for each movie
+            for (Movie movie : movies.getMovies() ) { // add panel for each movie
                 JPanel result = new JPanel(new BorderLayout());
 
                 // get poster - left
@@ -58,12 +58,10 @@ class MovieListing {
 
                 // select movie - right
                 JButton pickmovie = new JButton();
-                pickmovie.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        createPage(frame, movie, null, user);
-                        MainPage.page.show(MainPage.cardPanel,"movie");
-                    }
+                pickmovie.addActionListener(e -> {
+                    createPage(frame, movie, null, user);
+                    MainPage.page.show(MainPage.cardPanel,"movie");
+
                 });
                 result.add(pickmovie, BorderLayout.EAST);
 

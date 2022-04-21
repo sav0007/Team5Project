@@ -1,5 +1,6 @@
 package com.company.View;
 
+import com.company.Model.Collections;
 import com.company.Model.MovieDatabase;
 import com.company.Model.UserProfile;
 
@@ -11,7 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 
-import static com.company.View.LoginPage.frame;
+
 
 
 public class CollectionsPage extends MainPage{
@@ -39,24 +40,48 @@ public class CollectionsPage extends MainPage{
         CollectConst.gridy = 0;
         JButton AddCollection = new JButton("Create Collection");
         JButton DeleteCollection = new JButton("Delete Collection");
+        AddCollection.addActionListener(e -> {
+            PopUpAdd();
+        });
+        DeleteCollection.addActionListener(e -> {
+            PopUpDelete();
+        });
         osPanel.add(AddCollection);
         osPanel.add(DeleteCollection);
-        Collections.add(osPanel);
-        for (int i = 0; i < profile.getUserCollections().size(); i++){
+        CollectConst.weighty = 0;
+        CollectConst.weightx = 0;
+        Collections.add(osPanel, CollectConst);
+        Collections.setSize(1920, 1080);
+        for (int i = 0; i < uprof.getUserCollections().size(); i++) {
+            //creating buttons
             JButton comp = new JButton();
             comp.setBackground(Color.LIGHT_GRAY);
             comp.setLayout(new GridBagLayout());
             GridBagConstraints c = new GridBagConstraints();
-            String posterImage = profile.getCollection(i).getMovie(0).getPoster();
-            if (posterImage.compareTo("N/A") == 0) {
-                posterImage = "https://cdn.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.webp";
-            }
             URL moviePoster = null;
-            try {
-                moviePoster = new URL(posterImage);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
+            if (uprof.getCollection(i).movies.size() > 0) {
+                String posterImage = uprof.getCollection(i).getMovie(0).getPoster();
+
+                if (posterImage.compareTo("N/A") == 0) {
+                    posterImage = "https://cdn.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.webp";
+                }
+                try {
+                    moviePoster = new URL(posterImage);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
             }
+            else
+            {
+                String  posterImage = "https://cdn.vectorstock.com/i/1000x1000/88/26/no-image-available-icon-flat-vector-25898826.webp";
+
+                try {
+                    moviePoster = new URL(posterImage);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }
+
             //image resizing
             ImageIcon imag = new ImageIcon(moviePoster);
             Image image = imag.getImage();
@@ -70,7 +95,7 @@ public class CollectionsPage extends MainPage{
             c.gridy = 0;
             comp.add(poster, c);
 
-
+            // collection name
             JLabel CollectionName = new JLabel();
             CollectionName.setText("<html>" + profile.getCollection(i).getCollectionname() + "<br>" + "</html>");
             CollectionName.setFont(new Font("Arial",Font.BOLD,28));
@@ -84,7 +109,7 @@ public class CollectionsPage extends MainPage{
             c.gridy = 0;
             comp.add(CollectionName, c);
 
-
+            //collection description
             JLabel CollectionDescription = new JLabel();
             CollectionDescription.setText("<html>" + profile.getCollection(i).getDescription() + "<br>" + "</html>");
             CollectionDescription.setFont(new Font("Arial",Font.BOLD,20));
@@ -94,15 +119,11 @@ public class CollectionsPage extends MainPage{
             c.gridy = 1;
             comp.add(CollectionDescription, c);
             int finalI = i;
-            comp.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) { // this should redirect to the movie list in some way im not sure how yet
-                    int j = finalI;
-                    MovieListing.listingCard(uprof.getCollection(j));
-                    cardPanel.add("MovieListings",MovieListing.listingCard(uprof.getCollection(j)));
-                    page.show(cardPanel,"MovieListings"); //
-
-                }
+            comp.addActionListener(e -> { // redirects for each collection
+                int j = finalI;
+                MovieListing.listingCard(uprof.getCollection(j));
+                cardPanel.add("MovieListingsss",MovieListing.listingCard(uprof.getCollection(j)));
+                page.show(cardPanel,"MovieListingsss"); //
 
             });
             CollectConst.gridy = i + 1;
@@ -111,6 +132,95 @@ public class CollectionsPage extends MainPage{
 
         Collections.setVisible(true);
         return Collections;
+    }
+
+    public void PopUpAdd()
+    {
+        // building frame
+        JPanel PopAdd = new JPanel();
+        PopAdd.setSize(300, 200);
+        PopAdd.setBackground(Color.LIGHT_GRAY);
+        JFrame popup = new JFrame();
+        popup.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        //Creates Collection Name prompt
+        JLabel CreateCollectionLabel = new JLabel("New Collection Name");
+        CreateCollectionLabel.setBounds(10, 10, 165, 25);
+        CreateCollectionLabel.setForeground(Color.orange);
+        popup.add(CreateCollectionLabel);
+
+        // Creates Collection Name text field
+        JTextField CollectionNameText = new JTextField();
+        CollectionNameText.setBounds(10, 30, 165, 25);
+        popup.add(CollectionNameText);
+
+        //Creates Collection description prompt
+        CreateCollectionLabel = new JLabel("New Collection Description");
+        CreateCollectionLabel.setBounds(10, 50, 165, 25);
+        CreateCollectionLabel.setForeground(Color.orange);
+        popup.add(CreateCollectionLabel);
+
+        // Creates Collection descripion text field
+        JTextField CollectionDescriptionText = new JTextField();
+        CollectionDescriptionText.setBounds(10, 80, 165, 25);
+        popup.add(CollectionDescriptionText);
+
+        // Confirmation button
+        JButton Confirm = new JButton("Confirm");
+        Confirm.setBounds(120, 120, 150, 25);
+        Confirm.setForeground(Color.orange);
+        Confirm.addActionListener(e -> {
+            Collections tempcollect = new Collections();
+            String temp = CollectionNameText.getText();
+            if (temp != null)
+            tempcollect.setCollectionname(temp);
+            temp = CollectionDescriptionText.getText();
+            if (temp != null)
+            tempcollect.setDescription(temp);
+            uprof.createCollection(tempcollect);
+            popup.setVisible(false);
+            Collections.repaint();
+        });
+        popup.add(Confirm);
+
+
+        popup.add(PopAdd);
+        popup.setVisible(true);
+        popup.setBounds(200, 200, 300, 200);
+    }
+    public void PopUpDelete()
+    {
+        // building frame
+        JPanel PopAdd = new JPanel();
+        PopAdd.setSize(300, 200);
+        PopAdd.setBackground(Color.LIGHT_GRAY);
+        JFrame popup = new JFrame();
+        popup.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        //
+
+        popup.setLayout(new FlowLayout());
+        for (int i = 0; i < uprof.getUserCollections().size(); i++){
+            JButton combo = new JButton();
+            String temp =uprof.getCollection(i).getCollectionname();
+            combo.setText(temp);
+            int finalI = i;
+            combo.addActionListener(e -> {
+                int j = finalI;
+                uprof.deleteCollectionatind(j);
+                popup.setVisible(false);
+                Collections.repaint();
+                return;
+
+            });
+            popup.add(combo);
+            //combo.addItemListener(uprof.deleteCollection(uprof.getCollection(i)));
+        }
+
+
+        popup.add(PopAdd);
+        popup.setVisible(true);
+        popup.setBounds(200, 200, 300, 200);
     }
 
 

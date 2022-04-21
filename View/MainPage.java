@@ -15,7 +15,7 @@ public class MainPage extends Login {
     static JPanel cardPanel;
     static CardLayout page;
     protected static UserProfile user;
-
+    private static MovieDatabase movies1;
     /**
      *  draws panels and cards to be shown
      * @param frame jframe used by login used here
@@ -26,7 +26,7 @@ public class MainPage extends Login {
      public static void createPage(JFrame frame, Movie movdesc, MovieDatabase movies, UserProfile profile) {
 
          user = profile;
-
+         movies1 = movies;
          frame.setSize(1280,720);
          frame.setLayout(null);
          frame.setVisible(true);
@@ -46,6 +46,8 @@ public class MainPage extends Login {
 
         CollectionsPage a  = new CollectionsPage();
         cardPanel.add("Collections", a.CollectionsCard(profile));
+
+        cardPanel.add("MovieListing", MovieListing.listingCard(movies));
         // add all pages here
 
         page = (CardLayout)(cardPanel.getLayout());
@@ -81,6 +83,8 @@ public class MainPage extends Login {
         searchB.setBackground(Color.orange);
         searchB.addActionListener(e -> {
             String input = searchBar.getText();
+            MovieDatabase movies = new MovieDatabase();
+            movies.buildDatabaseJson("SampleMovieFile (2).json");
             final MovieSearch search = new MovieSearch(movies);
             search.filterMoviesByTitle(input);
             MovieDatabase results = search.getResults();

@@ -1,8 +1,17 @@
 package com.company.Model;
 
+import java.util.ArrayList;
+
 public class Collections extends MovieDatabase{
     private String Collectionname;
     private String Description;
+
+    public Collections()
+    {
+        Collectionname = null;
+        Description = null;
+        movies = new ArrayList<>();
+    }
 
     public String getCollectionname() {
         return Collectionname;

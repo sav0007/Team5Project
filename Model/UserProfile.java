@@ -66,6 +66,11 @@ public class UserProfile {
         this.UserCollections.remove(Collection);
     }
 
+    public void deleteCollectionatind(int i){
+        UserCollections.remove(i);
+    }
+
+
     /**
      * This method adds the preference of MovieDatabase type to the array
      * @param Preference : MovieDatabase fields
