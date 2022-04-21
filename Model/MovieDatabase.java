@@ -194,11 +194,24 @@ public class MovieDatabase
 
         return temp;
     }
-
+    /**
+     * Filters movies by title and returns a subdatabase of movies containing the title
+     * @param title title to filter by
+     * @return subDatabase
+     */
+     public MovieDatabase filterByTitle(final String title) {
+        MovieDatabase temp = new MovieDatabase();
+        for (final Movie movie : this.movies) {
+            if (movie.getTitle().contains(title)) {
+                temp.addMovie(movie);
+            }
+        }
+        return temp;
+    }
 
     /**
      * Filters movies by MPAA rating and returns a subdatabase of movies matching MPAA
-     * @param MPAA MPAA rating to fitler by
+     * @param MPAA MPAA rating to filter by
      * @return subDatabase
      */
     public MovieDatabase filterMPAA(String MPAA)
