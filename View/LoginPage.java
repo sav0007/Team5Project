@@ -92,11 +92,15 @@ public class LoginPage implements ActionListener {
         Login log = new Login();
         log.loadUserList();
         if (log.checkInfo(userName, password) == false){
-            // print error message and reload loginpage
+            JLabel fail = new JLabel("Incorrect Username or Password");
+            fail.setBounds(90, 55, 300, 25);
+            fail.setForeground(Color.yellow);
+            panel.add(fail);
+            frame.repaint();
         }
         else {
             panel.setVisible(false);
-            MainPage.createPage(frame, null, log.getUser());
+            MainPage.createPage(frame, null, null, log.getCurrentUser());
         }
 
     }
