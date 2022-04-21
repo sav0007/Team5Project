@@ -5,23 +5,29 @@ import com.company.Model.Login;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * LoginPage is the first thing the user sees when opening the app, it provides a portal to log in to personal GoodViews account
+ */
 public class LoginPage {
 
-    private static JLabel logoLabel;
-    private static JLabel usernameLabel;
     private static JTextField usernameText;
-    private static JLabel passwordLabel;
     private static JPasswordField passwordText;
     private static JButton loginButton;
     private static JButton createAccountButton;
     private static JButton guestUserButton;
-    private static JLabel success;
     static JFrame frame;
     static JPanel panel;
 
+    /**
+     * default constructor
+     */
     public static void LoginPage() {
         // constructor for main
     }
+
+    /**
+     * draws login page components
+     */
     public void login() {
 
         //Creates Login Window
@@ -34,14 +40,14 @@ public class LoginPage {
         panel.setLayout(null);
 
         //Creates GoodViews Logo
-        logoLabel = new JLabel("GoodViews");
+        JLabel logoLabel = new JLabel("GoodViews");
         logoLabel.setBounds(120, 30, 150, 25);
         logoLabel.setFont(new Font("Serif", Font.BOLD, 24));
         logoLabel.setForeground(Color.orange);
         panel.add(logoLabel);
 
         //Creates username prompt
-        usernameLabel = new JLabel("Username");
+        JLabel usernameLabel = new JLabel("Username");
         usernameLabel.setBounds(20, 80, 80, 25);
         usernameLabel.setForeground(Color.orange);
         panel.add(usernameLabel);
@@ -52,7 +58,7 @@ public class LoginPage {
         panel.add(usernameText);
 
         // Creates password prompt
-        passwordLabel = new JLabel("Password");
+        JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(20, 120, 80, 25);
         passwordLabel.setForeground(Color.orange);
         panel.add(passwordLabel);
@@ -87,9 +93,8 @@ public class LoginPage {
         loginButton.addActionListener(e -> {
             String userName = usernameText.getText();
             String password = passwordText.getText();
-            Login log = new Login();
-            log.loadUserList();
-            if (!log.checkInfo(userName, password)){
+            Login.loadUserList();
+            if (!Login.checkInfo(userName, password)){
                 JLabel fail = new JLabel("Incorrect Username or Password");
                 fail.setBounds(90, 55, 300, 25);
                 fail.setForeground(Color.yellow);
@@ -98,7 +103,7 @@ public class LoginPage {
             }
             else {
                 panel.setVisible(false);
-                MainPage.createPage(frame, null, null, log.getCurrentUser());
+                MainPage.createPage(frame, null, null, Login.getCurrentUser());
             }
         });
     }
@@ -133,7 +138,6 @@ public class LoginPage {
 
 
 /*
-
         if(userName.equals("Ace") && password.equals("octopus")) {
             success.setText("Login Successful");
             panel.setVisible(false);
@@ -160,26 +164,4 @@ public class LoginPage {
         else {
             success.setText("");
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- */
+*/

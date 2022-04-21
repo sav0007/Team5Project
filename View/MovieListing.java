@@ -1,22 +1,17 @@
 package com.company.View;
 
-import com.company.Model.Movie;
-import com.company.Model.MovieDatabase;
+import com.company.Model.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 import static com.company.View.LoginPage.frame;
 import static com.company.View.MainPage.createPage;
-import static com.company.View.MainPage.user;
+
 
 /**
- * Written by: Leela Hyatt
  * MovieListing displays list of movies from a search or collection
  */
 class MovieListing {
@@ -58,20 +53,15 @@ class MovieListing {
 
                 // select movie - right
                 JButton pickmovie = new JButton();
-                pickmovie.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        createPage(frame, movie, null, user);
-                        MainPage.page.show(MainPage.cardPanel,"movie");
-                    }
+                pickmovie.addActionListener(e -> {
+                    createPage(frame, movie, null, Login.getCurrentUser());
+                    MainPage.page.show(MainPage.cardPanel,"movie");
                 });
                 result.add(pickmovie, BorderLayout.EAST);
 
                 movieList.add(result);
             }
         }
-
-        // this panel may need a scrollbar
 
         return movieList;
 

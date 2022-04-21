@@ -5,10 +5,7 @@ import com.company.Model.*;
 import javax.swing.*;
 import java.awt.*;
 
-import static com.company.View.LoginPage.frame;
-
 /**
- * Written by: Leela Hyatt
  * MainPage shows user the pages they can interact with, it calls other view classes to centralize view control
  */
 public class MainPage extends Login {

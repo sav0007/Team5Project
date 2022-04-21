@@ -10,19 +10,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Written by: Leela Hyatt
- * Date: 4/3/22
  * MovieDescription presents movie information to the user and allows the user to leave a review and add to a collection
- * History:
- *  Date        Name            Modification
- *  4/12/22     Leela Hyatt     movie details taken from Movie
- *
  */
 public class MovieDescription  {
 
     /**
-     *
-     * @return
+     * draws movie description panel
+     * @param movie1 (Movie) movie to be shown
+     * @return movie panel
      */
     public JPanel movieCard(Movie movie1) {
         JPanel movie = new JPanel();
@@ -83,18 +78,22 @@ public class MovieDescription  {
         return movie;
     }
 
+    /**
+     * gets user reviews
+     * @return string of reviews
+     */
     private String getReviews() {
         return "bruh";
     }
 
     /**
-     *
-     * @param text
-     * @param x
-     * @param y
-     * @param w
-     * @param h
-     * @return
+     * makes generic label for description components
+     * @param text string that goes into the label
+     * @param x x-location of label
+     * @param y y-location of label
+     * @param w width of label
+     * @param h height of label
+     * @return label created
      */
     private JLabel makeLabel(String text, int x, int y, int w, int h) {
         JLabel label = new JLabel();
@@ -107,8 +106,9 @@ public class MovieDescription  {
     }
 
     /**
-     *
-     * @return
+     * generates movie poster to show user
+     * @param movie1 movie to get poster for
+     * @return label with poster in it
      */
      protected JLabel poster(Movie movie1) {
         String posterImage = movie1.getPoster();
@@ -131,8 +131,8 @@ public class MovieDescription  {
     // add review
 
     /**
-     *
-     * @return
+     * text box for user reviews
+     * @return text box
      */
     protected JTextField userReview() {
         JTextField reviewText = new JTextField(20);
@@ -143,8 +143,8 @@ public class MovieDescription  {
     }
 
     /**
-     *
-     * @return
+     * creates button that adds review to user reviews
+     * @return add review button
      */
     protected JButton Review() {
         JButton addReview = new JButton("Add Review");
