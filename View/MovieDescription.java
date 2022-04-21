@@ -1,6 +1,9 @@
 package com.company.View;
 
+import com.company.Model.Collections;
+import com.company.Model.Login;
 import com.company.Model.Movie;
+import com.company.Model.UserProfile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * MovieDescription presents movie information to the user and allows the user to leave a review and add to a collection
