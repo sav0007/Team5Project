@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import javax.swing.*;
 
-
+import static com.company.View.LoginPage.frame;
 
 
 public class CollectionsPage extends MainPage{
@@ -209,8 +209,7 @@ public class CollectionsPage extends MainPage{
                 int j = finalI;
                 uprof.deleteCollectionatind(j);
                 popup.setVisible(false);
-                Collections.repaint();
-                return;
+                frame.repaint();
 
             });
             popup.add(combo);

@@ -20,6 +20,9 @@ public class Login {
     }
     public static void createAccount(String username, String pass){
 
+        if(Users == null){
+            loadUserList();
+        }
         final LoginInfo user = Users.get(username);
         if (user == null) {
             final LoginInfo newUser = new LoginInfo(username, pass);
@@ -27,6 +30,7 @@ public class Login {
 
             final ArrayList<LoginInfo> users = returnUserList();
             users.add(newUser);
+            saveUserList(users);
 
             final UserProfile profile = new UserProfile(username, pass);
             profile.storeProfile();
@@ -146,6 +150,9 @@ public class Login {
             }
         }
     }
+
+
+
 }
 
 

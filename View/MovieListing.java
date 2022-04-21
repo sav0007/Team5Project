@@ -61,6 +61,7 @@ class MovieListing {
                 pickmovie.addActionListener(e -> {
                     createPage(frame, movie, null, user);
                     MainPage.page.show(MainPage.cardPanel,"movie");
+                    movieList.setVisible(false);
 
                 });
                 result.add(pickmovie, BorderLayout.EAST);
