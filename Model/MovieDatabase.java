@@ -149,10 +149,10 @@ public class MovieDatabase
                 String Y1 = o1.getYear();
                 String Y2 = o2.getYear();
                 int watch = Y1.compareTo(Y2);
-                if (watch > 0){
+                if (watch < 0){
                     return -1;
                 }
-                if (watch < 0){
+                if (watch > 0){
                     return 1;
                 }
                 return 0;

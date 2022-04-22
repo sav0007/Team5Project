@@ -40,7 +40,7 @@ public class LoginPage {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
         panel.setBackground(Color.gray);
-        frame.add(panel);
+
         panel.setLayout(null);
 
         //Creates GoodViews Logo
@@ -84,6 +84,7 @@ public class LoginPage {
         GuestUserButton();
         panel.add(guestUserButton);
 
+        frame.add(panel);
         frame.setVisible(true);
     }
 
