@@ -1,6 +1,6 @@
 package com.company.View;
 
-import com.company.Model.Movie;
+import com.company.Model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * MovieDescription presents movie information to the user and allows the user to leave a review and add to a collection
@@ -203,7 +204,7 @@ public class MovieDescription  {
         JComboBox collects = MovieDescription.chooseCollect();
         String collectionName = collects.toString();
         UserProfile profile = Login.getCurrentUser();
-        ArrayList<Collections>arrayTemp = profile.getUserCollections();
+        ArrayList<Collections> arrayTemp = profile.getUserCollections();
         ArrayList<String> CollectionArray = new ArrayList<>();
         for (int i = 0; i < arrayTemp.size(); i++) {
             Collections zero = arrayTemp.get(i);
