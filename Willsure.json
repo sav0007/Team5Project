@@ -1,10 +1,13 @@
 {
-  "userName": "Will",
-  "password": "sure",
+  "loginInfo": {
+    "username": "Will",
+    "password": "sure"
+  },
   "UserCollections": [
     {
       "Collectionname": "test collect name",
       "Description": "test desc nameasdasdasddffdgfdgsdfasdffgdfg s gsadf ads fagewasdg ffgh fd",
+      "moviesArrayList": [],
       "movies": [
         {
           "Title": "The Rocky Horror Picture Show",
@@ -817,6 +820,7 @@
     {
       "Collectionname": "Collection2 Test Name",
       "Description": "Collection 2 Test Description  ASdasddf fgdfgf ask jsi goizfsjg jahn jaojg sajhn",
+      "moviesArrayList": [],
       "movies": [
         {
           "Title": "Dune",
@@ -850,6 +854,12 @@
           "userReviews": []
         }
       ]
+    },
+    {
+      "Collectionname": "New test",
+      "Description": "safsdffdg",
+      "moviesArrayList": [],
+      "movies": []
     }
   ],
   "Preferences": [

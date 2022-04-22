@@ -44,6 +44,7 @@ public class ProfilePage extends MainPage {
         logOut.addActionListener(e -> {
             LoginPage.frame.removeAll();
             cardPanel.setVisible(false);
+            user.storeProfile();
             LoginPage newLogin = new LoginPage();
             newLogin.login();
         });

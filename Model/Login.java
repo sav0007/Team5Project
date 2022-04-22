@@ -45,6 +45,7 @@ public class Login {
             if (password.compareTo(user.getPassword()) == 0) {
                 final String tempS = username + password;
                 CurrentUser = loadProfile(tempS);
+                CurrentUser.setLoginInfo(user);
                 return true;
             }
         }

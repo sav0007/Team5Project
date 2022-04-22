@@ -10,6 +10,14 @@ import java.util.ArrayList;
 
 public class UserProfile {
 
+    public LoginInfo getLoginInfo() {
+        return loginInfo;
+    }
+
+    public void setLoginInfo(LoginInfo loginInfo) {
+        this.loginInfo = loginInfo;
+    }
+
     /**
      *  Setting the attributes of the Class to protected
      */
