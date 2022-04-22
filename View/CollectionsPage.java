@@ -205,7 +205,7 @@ public class CollectionsPage extends MainPage{
             int finalI = i;
             combo.addActionListener(e -> {
                 int j = finalI;
-                uprof.deleteCollectionatind(j);
+                uprof.deleteCollection(j);
                 popup.setVisible(false);
                 cardPanel.repaint();
 
