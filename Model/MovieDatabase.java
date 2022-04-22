@@ -200,7 +200,7 @@ public class MovieDatabase
      public MovieDatabase filterByTitle(final String title) {
         MovieDatabase temp = new MovieDatabase();
         for (final Movie movie : this.movies) {
-            if (movie.getTitle().contains(title)) {
+            if (movie.getTitle().toLowerCase().contains(title.toLowerCase())) {
                 temp.addMovie(movie);
             }
         }
