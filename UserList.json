@@ -10,5 +10,9 @@
   {
     "username": "Test",
     "password": "2"
+  },
+  {
+    "username": "Test3",
+    "password": "wow"
   }
 ]

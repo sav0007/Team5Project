@@ -1,16 +1,12 @@
 package com.company.View;
 
 import com.company.Model.Collections;
-import com.company.Model.MovieDatabase;
 import com.company.Model.UserProfile;
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import javax.swing.*;
 
 import static com.company.View.LoginPage.frame;
 
@@ -27,6 +23,7 @@ public class CollectionsPage extends MainPage{
     }
 
     public JPanel CollectionsCard(UserProfile profile) {
+        Collections.setVisible(true);
         uprof = profile;
         Collections.setLayout(new GridBagLayout());
         Collections.setBackground(Color.DARK_GRAY);
@@ -121,10 +118,10 @@ public class CollectionsPage extends MainPage{
             int finalI = i;
             comp.addActionListener(e -> { // redirects for each collection
                 int j = finalI;
-                MovieListing.listingCard(uprof.getCollection(j));
-                cardPanel.add("MovieListingsss",MovieListing.listingCard(uprof.getCollection(j)));
-                page.show(cardPanel,"MovieListingsss"); //
-
+                themovies = uprof.getCollection(j);
+                l.listingCard();
+                createPage();
+                page.show(cardPanel,"search");
             });
             CollectConst.gridy = i + 1;
             Collections.add(comp, CollectConst);

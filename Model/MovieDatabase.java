@@ -1,9 +1,7 @@
 package com.company.Model;
 
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
