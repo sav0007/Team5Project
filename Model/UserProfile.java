@@ -66,7 +66,7 @@ public class UserProfile {
         this.UserCollections.remove(Collection);
     }
 
-    public void deleteCollectionatind(int i){
+    public void deleteCollection(int i){
         UserCollections.remove(i);
     }
 
