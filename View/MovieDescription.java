@@ -163,32 +163,30 @@ public class MovieDescription  {
         return addReview;
     }
 
-    // add to collection
-
-    /**
+     /**
      *
      * @return
      */
-        protected static JComboBox chooseCollect() {
+    protected static JComboBox chooseCollect() {
 
         UserProfile temp = Login.getCurrentUser();
         ArrayList<Collections> arrayTemp = temp.getUserCollections();
         ArrayList<String> CollectionArray = new ArrayList<>();
         for (int i = 0; i < arrayTemp.size(); i++) {
             Collections zero = arrayTemp.get(i);
-            String Collection = zero.getCollectionname();
+            String Collection = zero.getName();
             CollectionArray.add(Collection);
         }
 
-        JComboBox collects = new JComboBox(CollectionArray.toArray());
+        JComboBox collects =  new JComboBox(CollectionArray.toArray());
         collects.setBounds(100, 550, 150, 20);
-
         collects.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                JComboBoxResults = collects.getSelectedItem();
             }
         });
+
 
         return collects;
     }
@@ -199,31 +197,48 @@ public class MovieDescription  {
      */
     protected JButton addCollect(Movie movie1) {
         JButton collect = new JButton("Add to Collection");
-
         collect.setBounds(100, 580, 150, 20);
-        JComboBox collects = MovieDescription.chooseCollect();
-        String collectionName = collects.toString();
-        UserProfile profile = Login.getCurrentUser();
-        ArrayList<Collections> arrayTemp = profile.getUserCollections();
-        ArrayList<String> CollectionArray = new ArrayList<>();
-        for (int i = 0; i < arrayTemp.size(); i++) {
-            Collections zero = arrayTemp.get(i);
-            String Collection = zero.getCollectionname();
-            CollectionArray.add(Collection);
-            if (collectionName == zero.getCollectionname()){
-                zero.addToCollection(movie1);
-
+        collect.addActionListener(e -> {
+            if(JComboBoxResults != null){
+                String collectionName = JComboBoxResults.toString();
+                UserProfile profile = Login.getCurrentUser();
+                ArrayList<Collections> arrayTemp = profile.getUserCollections();
+                ArrayList<String> CollectionArray = new ArrayList<>();
+                for (int i = 0; i < arrayTemp.size(); i++) {
+                    Collections zero = arrayTemp.get(i);
+                    String Collection = zero.getName();
+                    CollectionArray.add(Collection);
+                    if (collectionName == zero.getName()){
+                        zero.addToCollection(movie1);
+                    }
+                }
             }
-        }
-        collect.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
         });
-
-
 
         return collect;
     }
+    protected JButton removeCollect(Movie movie1){
+        JButton collect = new JButton("Remove From Collection");
+        collect.setBounds(100, 610, 150, 20);
+        collect.addActionListener(e -> {
+            if(JComboBoxResults != null){
+                String collectionName = JComboBoxResults.toString();
+                UserProfile profile = Login.getCurrentUser();
+                ArrayList<Collections> arrayTemp = profile.getUserCollections();
+                ArrayList<String> CollectionArray = new ArrayList<>();
+                for (int i = 0; i < arrayTemp.size(); i++) {
+                    Collections zero = arrayTemp.get(i);
+                    String Collection = zero.getName();
+                    CollectionArray.add(Collection);
+                    if (collectionName == zero.getName()){
+                        zero.removeFromCollection(movie1);
+                    }
+                }
+            }
+
+        });
+        return collect;
+    }
+    private static Object JComboBoxResults;
 }
