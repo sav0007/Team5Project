@@ -20,7 +20,7 @@ class MovieListing {
     private static JPanel movieList;
 
     MovieListing() {
-        movieList = new JPanel(new FlowLayout());
+        movieList = new JPanel(new GridBagLayout());
         movieList.setBackground(Color.lightGray);
     }
 
@@ -33,7 +33,10 @@ class MovieListing {
         movieList.add(options());
 
         if (themovies!= null) {
+            int i = 1;
+            GridBagConstraints c = new GridBagConstraints();
             for (Movie movie : themovies.getMovies() ) { // add panel for each movie
+
                 JPanel result = new JPanel(new BorderLayout());
                 // get poster - left
                 String posterImage = movie.getPoster();
@@ -67,9 +70,10 @@ class MovieListing {
                     MainPage.page.show(cardPanel,"movie");
                 });
                 result.add(pickmovie, BorderLayout.EAST);
-
-                movieList.add(result);
+                c.gridy = i;
+                movieList.add(result, c);
                 result.setVisible(true);
+                i++;
             }
         }
 

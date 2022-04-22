@@ -47,9 +47,9 @@ public class MainPage extends Login {
              cardPanel.add("home", homeCard());
              l = new MovieListing();
              l.listingCard();
-             cardPanel.add("search", l.addListing());
+             cardPanel.add("search", new JScrollPane(l.addListing()));
              CollectionsPage a = new CollectionsPage();
-             cardPanel.add("Collections", a.CollectionsCard(profile));
+             cardPanel.add("Collections", new JScrollPane(a.CollectionsCard(profile)));
              MovieListing m = new MovieListing();
              cardPanel.add("profile", ProfilePage.profileCard(profile));
 
@@ -138,7 +138,7 @@ public class MainPage extends Login {
         JLabel welcome = new JLabel("<html>"+"Welcome to GoodViews!<br>"
                 +"could add username to personalize homepage message<br>"+
                 "Should we add buttons to redirect to other pages or recommended movies?"+"</html>");
-
+        welcome.setFont(new Font("Arial",Font.BOLD,28));
         home.add(welcome);
         return home;
     }

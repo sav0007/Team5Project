@@ -176,7 +176,8 @@ public class CollectionsPage extends MainPage{
             tempcollect.setDescription(temp);
             uprof.createCollection(tempcollect);
             popup.setVisible(false);
-            Collections.repaint();
+            createPage();
+            page.show(cardPanel,"Collections");
         });
         popup.add(Confirm);
 
@@ -206,7 +207,7 @@ public class CollectionsPage extends MainPage{
                 int j = finalI;
                 uprof.deleteCollectionatind(j);
                 popup.setVisible(false);
-                frame.repaint();
+                cardPanel.repaint();
 
             });
             popup.add(combo);
