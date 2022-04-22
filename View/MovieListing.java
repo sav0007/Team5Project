@@ -7,8 +7,7 @@ import java.awt.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static com.company.View.MainPage.cardPanel;
-import static com.company.View.MainPage.themovies;
+import static com.company.View.MainPage.*;
 
 
 /**
@@ -94,23 +93,53 @@ class MovieListing {
         // add action listeners
 
         JButton sortAlphaAZ = new JButton("Sort Alphabetical (A-Z)");
+        sortAlphaAZ.addActionListener(e -> {
+            themovies.sortAlphaAZ();
+            createPage();
+            page.show(cardPanel, "search");
+        });
         JButton sortAlphaZA = new JButton("sort Alphabetical (Z-A)");
-        JButton sortOld = new JButton("sort Date (old-new)");
-        JButton sortNew = new JButton("sort Date (new-old)");
-        String[] genres = {"", "", "", ""}; //add possible genre
-        JLabel genreLabel = new JLabel("Genre: ",SwingConstants.RIGHT);
-        JComboBox genreFilter = new JComboBox(genres);
+        sortAlphaZA.addActionListener(e -> {
+            themovies.sortAlphaZA();
+            createPage();
+            page.show(cardPanel, "search");
+        });
+        JButton sortOld = new JButton("sort Date (new-old)");
+        sortOld.addActionListener(e -> {
+            themovies.sortDateOld();
+            createPage();
+            page.show(cardPanel, "search");
+        });
+        JButton sortNew = new JButton("sort Date (old-new)");
+        sortNew.addActionListener(e -> {
+            themovies.sortDateNew();
+            createPage();
+            page.show(cardPanel, "search");
+        });
+        JTextField genreText = new JTextField();
+        JButton genreFilter = new JButton("filter Genre");
+        genreFilter.addActionListener(e -> {
+            themovies=themovies.filterGenre(genreText.getText());
+            createPage();
+            page.show(cardPanel, "search");
+        });
         String[] mpaa = {"G","PG","PG-13","R","X","Not Rated"};
-        JLabel mpaaLabel = new JLabel("MPAA: ",SwingConstants.RIGHT);
+        JButton mpaaButton = new JButton("MPAA: ");
         JComboBox mpaaFilter = new JComboBox(mpaa);
+        mpaaButton.addActionListener(e -> {
+            String chosen = mpaaFilter.getSelectedItem().toString();
+            themovies=themovies.filterMPAA(chosen);
+            createPage();
+            page.show(cardPanel, "search");
+        });
 
         oPanel.add(sortAlphaAZ);
         oPanel.add(sortAlphaZA);
         oPanel.add(sortOld);
         oPanel.add(sortNew);
-        oPanel.add(genreLabel);
+        oPanel.add(genreText);
         oPanel.add(genreFilter);
-        oPanel.add(mpaaLabel);
+        oPanel.add(mpaaButton);
         oPanel.add(mpaaFilter);
 
         return oPanel;
