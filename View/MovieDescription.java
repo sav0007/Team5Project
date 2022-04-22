@@ -174,7 +174,7 @@ public class MovieDescription  {
         ArrayList<String> CollectionArray = new ArrayList<>();
         for (int i = 0; i < arrayTemp.size(); i++) {
             Collections zero = arrayTemp.get(i);
-            String Collection = zero.getName();
+            String Collection = zero.getCollectionname();
             CollectionArray.add(Collection);
         }
 
@@ -206,9 +206,9 @@ public class MovieDescription  {
                 ArrayList<String> CollectionArray = new ArrayList<>();
                 for (int i = 0; i < arrayTemp.size(); i++) {
                     Collections zero = arrayTemp.get(i);
-                    String Collection = zero.getName();
+                    String Collection = zero.getCollectionname();
                     CollectionArray.add(Collection);
-                    if (collectionName == zero.getName()){
+                    if (collectionName == zero.getCollectionname()){
                         zero.addToCollection(movie1);
                     }
                 }
@@ -229,9 +229,9 @@ public class MovieDescription  {
                 ArrayList<String> CollectionArray = new ArrayList<>();
                 for (int i = 0; i < arrayTemp.size(); i++) {
                     Collections zero = arrayTemp.get(i);
-                    String Collection = zero.getName();
+                    String Collection = zero.getCollectionname();
                     CollectionArray.add(Collection);
-                    if (collectionName == zero.getName()){
+                    if (collectionName == zero.getCollectionname()){
                         zero.removeFromCollection(movie1);
                     }
                 }
